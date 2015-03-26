@@ -1,0 +1,14 @@
+﻿@model StudentPlanner.Models.AspNetUser
+
+@{
+    ViewBag.Title = Model.UserName;
+}
+
+<h2>@Model.UserName</h2>
+<br />
+<img class="userImage" src="@Model.ProfilePicture" />
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -54,9 +54,9 @@ namespace StudentPlanner
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1604976969718174",
+               appSecret: "eb213edf4dcbf233b6d5600232c97b7a");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

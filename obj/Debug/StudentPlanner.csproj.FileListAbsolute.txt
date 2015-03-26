@@ -53,3 +53,5 @@ C:\Users\jstam397\Desktop\StudentPlanner\StudentPlanner\bin\Microsoft.Owin.Secur
 C:\Users\jstam397\Desktop\StudentPlanner\StudentPlanner\obj\Debug\StudentPlanner.csprojResolveAssemblyReference.cache
 C:\Users\jstam397\Desktop\StudentPlanner\StudentPlanner\obj\Debug\StudentPlanner.dll
 C:\Users\jstam397\Desktop\StudentPlanner\StudentPlanner\obj\Debug\StudentPlanner.pdb
+C:\Users\jstam397\Desktop\StudentPlanner\StudentPlanner\bin\Facebook.dll
+C:\Users\jstam397\Desktop\StudentPlanner\StudentPlanner\bin\Facebook.xml

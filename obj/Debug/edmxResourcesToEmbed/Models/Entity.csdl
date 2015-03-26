@@ -17,6 +17,7 @@
     <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+    <NavigationProperty Name="AspNetUsers1" Relationship="Model.AspNetUserRoles1" FromRole="AspNetRole" ToRole="AspNetUser" />
   </EntityType>
   <EntityType Name="AspNetUserClaim">
     <Key>
@@ -60,6 +61,8 @@
     <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
     <NavigationProperty Name="Cours" Relationship="Model.AspNetUserCours" FromRole="AspNetUser" ToRole="Cours" />
     <NavigationProperty Name="ToDoes" Relationship="Model.AspNetUserToDo" FromRole="AspNetUser" ToRole="ToDo" />
+    <Property Name="ProfilePicture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetRoles1" Relationship="Model.AspNetUserRoles1" FromRole="AspNetUser" ToRole="AspNetRole" />
   </EntityType>
   <EntityType Name="Cours">
     <Key>
@@ -191,6 +194,10 @@
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="ToDo" EntitySet="ToDoes" />
     </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles1" Association="Model.AspNetUserRoles1">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
   </EntityContainer>
   <Association Name="AspNetUserCours">
     <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
@@ -243,5 +250,9 @@
         <PropertyRef Name="AspNetUserId" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles1">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
   </Association>
 </Schema>

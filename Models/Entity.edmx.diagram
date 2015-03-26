@@ -23,6 +23,7 @@
         <AssociationConnector Association="Model.CoursProject" />
         <AssociationConnector Association="Model.CoursHomework" />
         <AssociationConnector Association="Model.AspNetUserToDo" />
+        <AssociationConnector Association="Model.AspNetUserRoles1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

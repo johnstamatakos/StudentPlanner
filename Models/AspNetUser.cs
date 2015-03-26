@@ -21,6 +21,7 @@ namespace StudentPlanner.Models
             this.AspNetRoles = new HashSet<AspNetRole>();
             this.Cours = new HashSet<Cours>();
             this.ToDoes = new HashSet<ToDo>();
+            this.AspNetRoles1 = new HashSet<AspNetRole>();
         }
     
         public string Id { get; set; }
@@ -35,11 +36,13 @@ namespace StudentPlanner.Models
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
+        public string ProfilePicture { get; set; }
     
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
         public virtual ICollection<Cours> Cours { get; set; }
         public virtual ICollection<ToDo> ToDoes { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles1 { get; set; }
     }
 }

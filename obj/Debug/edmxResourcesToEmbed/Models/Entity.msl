@@ -2,8 +2,8 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
     <EntitySetMapping Name="C__MigrationHistory">
-      <EntityTypeMapping TypeName="Model.C__MigrationHistory">
-        <MappingFragment StoreEntitySet="__MigrationHistory">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.C__MigrationHistory)">
+        <MappingFragment StoreEntitySet="C__MigrationHistory">
           <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
           <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
           <ScalarProperty Name="Model" ColumnName="Model" />
@@ -12,7 +12,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetRoles">
-      <EntityTypeMapping TypeName="Model.AspNetRole">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.AspNetRole)">
         <MappingFragment StoreEntitySet="AspNetRoles">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -20,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUserClaims">
-      <EntityTypeMapping TypeName="Model.AspNetUserClaim">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.AspNetUserClaim)">
         <MappingFragment StoreEntitySet="AspNetUserClaims">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -30,7 +30,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUserLogins">
-      <EntityTypeMapping TypeName="Model.AspNetUserLogin">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.AspNetUserLogin)">
         <MappingFragment StoreEntitySet="AspNetUserLogins">
           <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
           <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -39,7 +39,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="Model.AspNetUser">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.AspNetUser)">
         <MappingFragment StoreEntitySet="AspNetUsers">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -53,11 +53,12 @@
           <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
           <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Courses">
-      <EntityTypeMapping TypeName="Model.Cours">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Cours)">
         <MappingFragment StoreEntitySet="Courses">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CourseName" ColumnName="CourseName" />
@@ -68,48 +69,68 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Exams">
-      <EntityTypeMapping TypeName="Model.Exam">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Exam)">
         <MappingFragment StoreEntitySet="Exams">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ExamName" ColumnName="ExamName" />
           <ScalarProperty Name="Prepared" ColumnName="Prepared" />
+          <ScalarProperty Name="CoursId" ColumnName="CoursId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Homeworks">
-      <EntityTypeMapping TypeName="Model.Homework">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Homework)">
         <MappingFragment StoreEntitySet="Homeworks">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="HomeworkName" ColumnName="HomeworkName" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="CoursId" ColumnName="CoursId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Projects">
-      <EntityTypeMapping TypeName="Model.Project">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Project)">
         <MappingFragment StoreEntitySet="Projects">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
           <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="CoursId" ColumnName="CoursId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ToDoes">
-      <EntityTypeMapping TypeName="Model.ToDo">
-        <MappingFragment StoreEntitySet="ToDo">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.ToDo)">
+        <MappingFragment StoreEntitySet="ToDoes">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Item" ColumnName="Item" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
       <EndProperty Name="AspNetRoles">
-        <ScalarProperty Name="Id" ColumnName="RoleId" />
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles_Id" />
       </EndProperty>
       <EndProperty Name="AspNetUsers">
-        <ScalarProperty Name="Id" ColumnName="UserId" />
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserCours" TypeName="Model.AspNetUserCours" StoreEntitySet="AspNetUserCours">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers_Id" />
+      </EndProperty>
+      <EndProperty Name="Cours">
+        <ScalarProperty Name="Id" ColumnName="Cours_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles1" TypeName="Model.AspNetUserRoles1" StoreEntitySet="AspNetUserRoles1">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles1_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers1_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
