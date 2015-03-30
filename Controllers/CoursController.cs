@@ -37,18 +37,20 @@ namespace StudentPlanner.Controllers
         }
 
         // GET: Cours/Create
-        public ActionResult Create()
+        public ActionResult Create(string coursename, string days, TimeSpan time, string professor, string userId)
         {
-            ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email");
-            return View();
+            db.Courses.Add(new Cours { CourseName = coursename, Days = days, Time = time, Professor = professor, UserId = userId });
+            db.SaveChanges();
+            return RedirectToAction("Details", "Users", new { id = userId });
         }
+
 
         // POST: Cours/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CourseName,Days,Time,Professor,AspNetUserId")] Cours cours)
+        public ActionResult Create([Bind(Include = "CourseName,Days,Time,Professor,UserId")] Cours cours)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +59,7 @@ namespace StudentPlanner.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", cours.AspNetUserId);
+            ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email", cours.UserId);
             return View(cours);
         }
 
@@ -73,7 +75,7 @@ namespace StudentPlanner.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", cours.AspNetUserId);
+            ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email", cours.UserId);
             return View(cours);
         }
 
@@ -82,7 +84,7 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CourseName,Days,Time,Professor,AspNetUserId")] Cours cours)
+        public ActionResult Edit([Bind(Include = "Id,CourseName,Days,Time,Professor,AspNetUserId,UserId")] Cours cours)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +92,7 @@ namespace StudentPlanner.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", cours.AspNetUserId);
+            ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email", cours.UserId);
             return View(cours);
         }
 

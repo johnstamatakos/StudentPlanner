@@ -26,7 +26,7 @@ namespace StudentPlanner.Models
         public string Days { get; set; }
         public Nullable<System.TimeSpan> Time { get; set; }
         public string Professor { get; set; }
-        public string AspNetUserId { get; set; }
+        public string UserId { get; set; }
     
         public virtual ICollection<Exam> Exams { get; set; }
         public virtual ICollection<Project> Projects { get; set; }

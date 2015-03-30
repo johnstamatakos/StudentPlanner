@@ -24,8 +24,11 @@
         <AssociationConnector Association="Model.AspNetUserToDo" />
         <AssociationConnector Association="Model.AspNetUserRoles1" />
         <AssociationConnector Association="Model.AspNetUserRoles2" />
-        <AssociationConnector Association="Model.AspNetUserCours" />
         <AssociationConnector Association="Model.AspNetUserRoles3" />
+        <AssociationConnector Association="Model.AspNetUserRoles4" />
+        <AssociationConnector Association="Model.AspNetUserCours" />
+        <AssociationConnector Association="Model.AspNetUserRoles5" />
+        <AssociationConnector Association="Model.AspNetUserRoles6" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

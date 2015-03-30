@@ -218,8 +218,9 @@ namespace StudentPlanner.Controllers
         {
 
             var userCourse = (from course in db.Courses
-                            where course.AspNetUserId == id
-                            select course).FirstOrDefault();
+                              join user in db.AspNetUsers on course.UserId equals user.Id
+                              where course.UserId == id
+                              select user.Cours).FirstOrDefault();
 
                 return PartialView("_coursePartial", userCourse);
         }

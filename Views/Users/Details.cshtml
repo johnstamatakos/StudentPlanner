@@ -1,4 +1,5 @@
 ﻿@model StudentPlanner.Models.AspNetUser
+@using Microsoft.AspNet.Identity;
 
 @{
     ViewBag.Title = Model.UserName;
@@ -15,6 +16,17 @@
 <br />
 <br />
 
+@using (Html.BeginForm("Create", "Cours", new { @class = "courseForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.TextArea("coursename", new { @class = "courseTextArea" });
+    @Html.TextArea("days", new { @class = "courseTextArea" });
+    @Html.TextArea("time", new { @class = "courseTextArea" });
+    @Html.TextArea("professor", new { @class = "courseTextArea" });
+    @Html.Hidden("userId", Model.Id);
+    <br />
+    <input type="submit" value="+" class="courseInput btn btn-success">
+}
 <div id="courseList">
     @Html.Action("getCourses", new { id = Model.Id });
 </div>

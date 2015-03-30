@@ -22,8 +22,11 @@ namespace StudentPlanner.Models
             this.ToDoes = new HashSet<ToDo>();
             this.AspNetRoles1 = new HashSet<AspNetRole>();
             this.AspNetRoles2 = new HashSet<AspNetRole>();
-            this.Cours = new HashSet<Cours>();
             this.AspNetRoles3 = new HashSet<AspNetRole>();
+            this.AspNetRoles4 = new HashSet<AspNetRole>();
+            this.Cours = new HashSet<Cours>();
+            this.AspNetRoles5 = new HashSet<AspNetRole>();
+            this.AspNetRoles6 = new HashSet<AspNetRole>();
         }
     
         public string Id { get; set; }
@@ -46,7 +49,10 @@ namespace StudentPlanner.Models
         public virtual ICollection<ToDo> ToDoes { get; set; }
         public virtual ICollection<AspNetRole> AspNetRoles1 { get; set; }
         public virtual ICollection<AspNetRole> AspNetRoles2 { get; set; }
-        public virtual ICollection<Cours> Cours { get; set; }
         public virtual ICollection<AspNetRole> AspNetRoles3 { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles4 { get; set; }
+        public virtual ICollection<Cours> Cours { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles5 { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles6 { get; set; }
     }
 }

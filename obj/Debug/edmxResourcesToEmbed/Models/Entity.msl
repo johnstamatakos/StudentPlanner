@@ -65,7 +65,7 @@
           <ScalarProperty Name="Days" ColumnName="Days" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Professor" ColumnName="Professor" />
-          <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -140,6 +140,30 @@
       </EndProperty>
       <EndProperty Name="AspNetUser">
         <ScalarProperty Name="Id" ColumnName="AspNetUsers3_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles4" TypeName="Model.AspNetUserRoles4" StoreEntitySet="AspNetUserRoles4">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles4_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers4_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles5" TypeName="Model.AspNetUserRoles5" StoreEntitySet="AspNetUserRoles5">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles5_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers5_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles6" TypeName="Model.AspNetUserRoles6" StoreEntitySet="AspNetUserRoles6">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles6_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers6_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

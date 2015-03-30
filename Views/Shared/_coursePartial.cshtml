@@ -1,0 +1,22 @@
+﻿@model IEnumerable<StudentPlanner.Models.Cours>
+
+<p>
+   Add link to Create Post Modal
+</p>
+
+@if (Model != null)
+{
+        foreach (var item in Model)
+        {
+        <table>
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CourseName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Professor)</td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>
+            </tr>
+        </table>
+        }
+}
+

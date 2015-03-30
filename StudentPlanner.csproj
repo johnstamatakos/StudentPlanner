@@ -306,6 +306,7 @@
     <Content Include="Views\Cours\Details.cshtml" />
     <Content Include="Views\Cours\Edit.cshtml" />
     <Content Include="Views\Cours\Index.cshtml" />
+    <Content Include="Views\Shared\_coursePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

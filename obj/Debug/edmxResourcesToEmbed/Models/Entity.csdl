@@ -20,6 +20,9 @@
     <NavigationProperty Name="AspNetUsers1" Relationship="Model.AspNetUserRoles1" FromRole="AspNetRole" ToRole="AspNetUser" />
     <NavigationProperty Name="AspNetUsers2" Relationship="Model.AspNetUserRoles2" FromRole="AspNetRole" ToRole="AspNetUser" />
     <NavigationProperty Name="AspNetUsers3" Relationship="Model.AspNetUserRoles3" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers4" Relationship="Model.AspNetUserRoles4" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers5" Relationship="Model.AspNetUserRoles5" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers6" Relationship="Model.AspNetUserRoles6" FromRole="AspNetRole" ToRole="AspNetUser" />
   </EntityType>
   <EntityType Name="AspNetUserClaim">
     <Key>
@@ -65,8 +68,11 @@
     <Property Name="ProfilePicture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="AspNetRoles1" Relationship="Model.AspNetUserRoles1" FromRole="AspNetUser" ToRole="AspNetRole" />
     <NavigationProperty Name="AspNetRoles2" Relationship="Model.AspNetUserRoles2" FromRole="AspNetUser" ToRole="AspNetRole" />
-    <NavigationProperty Name="Cours" Relationship="Model.AspNetUserCours" FromRole="AspNetUser" ToRole="Cours" />
     <NavigationProperty Name="AspNetRoles3" Relationship="Model.AspNetUserRoles3" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles4" Relationship="Model.AspNetUserRoles4" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="Cours" Relationship="Model.AspNetUserCours" FromRole="AspNetUser" ToRole="Cours" />
+    <NavigationProperty Name="AspNetRoles5" Relationship="Model.AspNetUserRoles5" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles6" Relationship="Model.AspNetUserRoles6" FromRole="AspNetUser" ToRole="AspNetRole" />
   </EntityType>
   <EntityType Name="Cours">
     <Key>
@@ -80,8 +86,8 @@
     <NavigationProperty Name="Exams" Relationship="Model.CoursExam" FromRole="Cours" ToRole="Exam" />
     <NavigationProperty Name="Projects" Relationship="Model.CoursProject" FromRole="Cours" ToRole="Project" />
     <NavigationProperty Name="Homework" Relationship="Model.CoursHomework" FromRole="Cours" ToRole="Homework" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserCours" FromRole="Cours" ToRole="AspNetUser" />
-    <Property Name="AspNetUserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Exam">
     <Key>
@@ -203,11 +209,23 @@
       <End Role="AspNetRole" EntitySet="AspNetRoles" />
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles3" Association="Model.AspNetUserRoles3">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles4" Association="Model.AspNetUserRoles4">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
     <AssociationSet Name="AspNetUserCours" Association="Model.AspNetUserCours">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="Cours" EntitySet="Courses" />
     </AssociationSet>
-    <AssociationSet Name="AspNetUserRoles3" Association="Model.AspNetUserRoles3">
+    <AssociationSet Name="AspNetUserRoles5" Association="Model.AspNetUserRoles5">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles6" Association="Model.AspNetUserRoles6">
       <End Role="AspNetRole" EntitySet="AspNetRoles" />
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
     </AssociationSet>
@@ -268,6 +286,14 @@
     <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
     <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
   </Association>
+  <Association Name="AspNetUserRoles3">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles4">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
   <Association Name="AspNetUserCours">
     <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
     <End Type="Model.Cours" Role="Cours" Multiplicity="*" />
@@ -276,11 +302,15 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Cours">
-        <PropertyRef Name="AspNetUserId" />
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="AspNetUserRoles3">
+  <Association Name="AspNetUserRoles5">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles6">
     <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
     <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
   </Association>
