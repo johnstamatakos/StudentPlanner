@@ -16,7 +16,6 @@ namespace StudentPlanner.Models
     {
         public Cours()
         {
-            this.AspNetUsers = new HashSet<AspNetUser>();
             this.Exams = new HashSet<Exam>();
             this.Projects = new HashSet<Project>();
             this.Homework = new HashSet<Homework>();
@@ -27,10 +26,11 @@ namespace StudentPlanner.Models
         public string Days { get; set; }
         public Nullable<System.TimeSpan> Time { get; set; }
         public string Professor { get; set; }
+        public string AspNetUserId { get; set; }
     
-        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
         public virtual ICollection<Exam> Exams { get; set; }
         public virtual ICollection<Project> Projects { get; set; }
         public virtual ICollection<Homework> Homework { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

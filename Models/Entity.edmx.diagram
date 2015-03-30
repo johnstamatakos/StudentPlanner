@@ -18,12 +18,14 @@
         <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.AspNetUserCours" />
         <AssociationConnector Association="Model.CoursExam" />
         <AssociationConnector Association="Model.CoursProject" />
         <AssociationConnector Association="Model.CoursHomework" />
         <AssociationConnector Association="Model.AspNetUserToDo" />
         <AssociationConnector Association="Model.AspNetUserRoles1" />
+        <AssociationConnector Association="Model.AspNetUserRoles2" />
+        <AssociationConnector Association="Model.AspNetUserCours" />
+        <AssociationConnector Association="Model.AspNetUserRoles3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

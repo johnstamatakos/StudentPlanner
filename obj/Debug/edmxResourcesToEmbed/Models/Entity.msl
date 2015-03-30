@@ -65,6 +65,7 @@
           <ScalarProperty Name="Days" ColumnName="Days" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="Professor" ColumnName="Professor" />
+          <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -117,20 +118,28 @@
         <ScalarProperty Name="Id" ColumnName="AspNetUsers_Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="AspNetUserCours" TypeName="Model.AspNetUserCours" StoreEntitySet="AspNetUserCours">
-      <EndProperty Name="AspNetUser">
-        <ScalarProperty Name="Id" ColumnName="AspNetUsers_Id" />
-      </EndProperty>
-      <EndProperty Name="Cours">
-        <ScalarProperty Name="Id" ColumnName="Cours_Id" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="AspNetUserRoles1" TypeName="Model.AspNetUserRoles1" StoreEntitySet="AspNetUserRoles1">
       <EndProperty Name="AspNetRole">
         <ScalarProperty Name="Id" ColumnName="AspNetRoles1_Id" />
       </EndProperty>
       <EndProperty Name="AspNetUser">
         <ScalarProperty Name="Id" ColumnName="AspNetUsers1_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles2" TypeName="Model.AspNetUserRoles2" StoreEntitySet="AspNetUserRoles2">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles2_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers2_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles3" TypeName="Model.AspNetUserRoles3" StoreEntitySet="AspNetUserRoles3">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles3_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers3_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

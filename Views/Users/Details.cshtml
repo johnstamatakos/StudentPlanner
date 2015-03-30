@@ -9,6 +9,12 @@
 <img class="userImage" src="@Model.ProfilePicture" />
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit Profile", "Edit", new { id = Model.Id })
 </p>
+
+<br />
+<br />
+
+<div id="courseList">
+    @Html.Action("getCourses", new { id = Model.Id });
+</div>

@@ -17,7 +17,8 @@ namespace StudentPlanner.Controllers
         // GET: Cours
         public ActionResult Index()
         {
-            return View(db.Courses.ToList());
+            var courses = db.Courses.Include(c => c.AspNetUser);
+            return View(courses.ToList());
         }
 
         // GET: Cours/Details/5
@@ -38,6 +39,7 @@ namespace StudentPlanner.Controllers
         // GET: Cours/Create
         public ActionResult Create()
         {
+            ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CourseName,Days,Time,Professor")] Cours cours)
+        public ActionResult Create([Bind(Include = "Id,CourseName,Days,Time,Professor,AspNetUserId")] Cours cours)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace StudentPlanner.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", cours.AspNetUserId);
             return View(cours);
         }
 
@@ -70,6 +73,7 @@ namespace StudentPlanner.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", cours.AspNetUserId);
             return View(cours);
         }
 
@@ -78,7 +82,7 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CourseName,Days,Time,Professor")] Cours cours)
+        public ActionResult Edit([Bind(Include = "Id,CourseName,Days,Time,Professor,AspNetUserId")] Cours cours)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace StudentPlanner.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", cours.AspNetUserId);
             return View(cours);
         }
 

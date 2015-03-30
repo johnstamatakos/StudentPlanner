@@ -213,5 +213,16 @@ namespace StudentPlanner.Controllers
             }
 
         }
+
+        public ActionResult getCourses(string id)
+        {
+
+            var userCourse = (from course in db.Courses
+                            where course.AspNetUserId == id
+                            select course).FirstOrDefault();
+
+                return PartialView("_coursePartial", userCourse);
+        }
     }
 }
+

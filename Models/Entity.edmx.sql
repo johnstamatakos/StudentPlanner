@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/26/2015 14:48:45
+-- Date Created: 03/30/2015 08:12:35
 -- Generated from EDMX file: C:\Users\jstam397\Desktop\StudentPlanner\StudentPlanner\Models\Entity.edmx
 -- --------------------------------------------------
 
@@ -119,17 +119,18 @@ GO
 
 -- Creating table 'Courses'
 CREATE TABLE [dbo].[Courses] (
-    [Id] int  NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [CourseName] varchar(50)  NULL,
     [Days] varchar(50)  NULL,
     [Time] time  NULL,
-    [Professor] varchar(50)  NULL
+    [Professor] varchar(50)  NULL,
+    [AspNetUserId] nvarchar(128)  NOT NULL
 );
 GO
 
 -- Creating table 'Exams'
 CREATE TABLE [dbo].[Exams] (
-    [Id] int  NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [ExamName] varchar(50)  NULL,
     [Prepared] int  NULL,
     [CoursId] int  NOT NULL
@@ -138,7 +139,7 @@ GO
 
 -- Creating table 'Homeworks'
 CREATE TABLE [dbo].[Homeworks] (
-    [Id] int  NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [HomeworkName] varchar(50)  NULL,
     [Description] varchar(50)  NULL,
     [DueDate] datetime  NULL,
@@ -148,7 +149,7 @@ GO
 
 -- Creating table 'Projects'
 CREATE TABLE [dbo].[Projects] (
-    [Id] int  NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [ProjectName] varchar(50)  NULL,
     [DueDate] datetime  NULL,
     [CoursId] int  NOT NULL
@@ -157,7 +158,7 @@ GO
 
 -- Creating table 'ToDoes'
 CREATE TABLE [dbo].[ToDoes] (
-    [Id] int  NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Item] varchar(50)  NULL,
     [Description] varchar(50)  NULL,
     [AspNetUserId] nvarchar(128)  NOT NULL
@@ -171,17 +172,24 @@ CREATE TABLE [dbo].[AspNetUserRoles] (
 );
 GO
 
--- Creating table 'AspNetUserCours'
-CREATE TABLE [dbo].[AspNetUserCours] (
-    [AspNetUsers_Id] nvarchar(128)  NOT NULL,
-    [Cours_Id] int  NOT NULL
-);
-GO
-
 -- Creating table 'AspNetUserRoles1'
 CREATE TABLE [dbo].[AspNetUserRoles1] (
     [AspNetRoles1_Id] nvarchar(128)  NOT NULL,
     [AspNetUsers1_Id] nvarchar(128)  NOT NULL
+);
+GO
+
+-- Creating table 'AspNetUserRoles2'
+CREATE TABLE [dbo].[AspNetUserRoles2] (
+    [AspNetRoles2_Id] nvarchar(128)  NOT NULL,
+    [AspNetUsers2_Id] nvarchar(128)  NOT NULL
+);
+GO
+
+-- Creating table 'AspNetUserRoles3'
+CREATE TABLE [dbo].[AspNetUserRoles3] (
+    [AspNetRoles3_Id] nvarchar(128)  NOT NULL,
+    [AspNetUsers3_Id] nvarchar(128)  NOT NULL
 );
 GO
 
@@ -255,16 +263,22 @@ ADD CONSTRAINT [PK_AspNetUserRoles]
     PRIMARY KEY CLUSTERED ([AspNetRoles_Id], [AspNetUsers_Id] ASC);
 GO
 
--- Creating primary key on [AspNetUsers_Id], [Cours_Id] in table 'AspNetUserCours'
-ALTER TABLE [dbo].[AspNetUserCours]
-ADD CONSTRAINT [PK_AspNetUserCours]
-    PRIMARY KEY CLUSTERED ([AspNetUsers_Id], [Cours_Id] ASC);
-GO
-
 -- Creating primary key on [AspNetRoles1_Id], [AspNetUsers1_Id] in table 'AspNetUserRoles1'
 ALTER TABLE [dbo].[AspNetUserRoles1]
 ADD CONSTRAINT [PK_AspNetUserRoles1]
     PRIMARY KEY CLUSTERED ([AspNetRoles1_Id], [AspNetUsers1_Id] ASC);
+GO
+
+-- Creating primary key on [AspNetRoles2_Id], [AspNetUsers2_Id] in table 'AspNetUserRoles2'
+ALTER TABLE [dbo].[AspNetUserRoles2]
+ADD CONSTRAINT [PK_AspNetUserRoles2]
+    PRIMARY KEY CLUSTERED ([AspNetRoles2_Id], [AspNetUsers2_Id] ASC);
+GO
+
+-- Creating primary key on [AspNetRoles3_Id], [AspNetUsers3_Id] in table 'AspNetUserRoles3'
+ALTER TABLE [dbo].[AspNetUserRoles3]
+ADD CONSTRAINT [PK_AspNetUserRoles3]
+    PRIMARY KEY CLUSTERED ([AspNetRoles3_Id], [AspNetUsers3_Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -323,30 +337,6 @@ GO
 CREATE INDEX [IX_FK_AspNetUserRoles_AspNetUsers]
 ON [dbo].[AspNetUserRoles]
     ([AspNetUsers_Id]);
-GO
-
--- Creating foreign key on [AspNetUsers_Id] in table 'AspNetUserCours'
-ALTER TABLE [dbo].[AspNetUserCours]
-ADD CONSTRAINT [FK_AspNetUserCours_AspNetUser]
-    FOREIGN KEY ([AspNetUsers_Id])
-    REFERENCES [dbo].[AspNetUsers]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Cours_Id] in table 'AspNetUserCours'
-ALTER TABLE [dbo].[AspNetUserCours]
-ADD CONSTRAINT [FK_AspNetUserCours_Cours]
-    FOREIGN KEY ([Cours_Id])
-    REFERENCES [dbo].[Courses]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_AspNetUserCours_Cours'
-CREATE INDEX [IX_FK_AspNetUserCours_Cours]
-ON [dbo].[AspNetUserCours]
-    ([Cours_Id]);
 GO
 
 -- Creating foreign key on [CoursId] in table 'Exams'
@@ -431,6 +421,69 @@ GO
 CREATE INDEX [IX_FK_AspNetUserRoles1_AspNetUser]
 ON [dbo].[AspNetUserRoles1]
     ([AspNetUsers1_Id]);
+GO
+
+-- Creating foreign key on [AspNetRoles2_Id] in table 'AspNetUserRoles2'
+ALTER TABLE [dbo].[AspNetUserRoles2]
+ADD CONSTRAINT [FK_AspNetUserRoles2_AspNetRole]
+    FOREIGN KEY ([AspNetRoles2_Id])
+    REFERENCES [dbo].[AspNetRoles]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [AspNetUsers2_Id] in table 'AspNetUserRoles2'
+ALTER TABLE [dbo].[AspNetUserRoles2]
+ADD CONSTRAINT [FK_AspNetUserRoles2_AspNetUser]
+    FOREIGN KEY ([AspNetUsers2_Id])
+    REFERENCES [dbo].[AspNetUsers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AspNetUserRoles2_AspNetUser'
+CREATE INDEX [IX_FK_AspNetUserRoles2_AspNetUser]
+ON [dbo].[AspNetUserRoles2]
+    ([AspNetUsers2_Id]);
+GO
+
+-- Creating foreign key on [AspNetUserId] in table 'Courses'
+ALTER TABLE [dbo].[Courses]
+ADD CONSTRAINT [FK_AspNetUserCours]
+    FOREIGN KEY ([AspNetUserId])
+    REFERENCES [dbo].[AspNetUsers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AspNetUserCours'
+CREATE INDEX [IX_FK_AspNetUserCours]
+ON [dbo].[Courses]
+    ([AspNetUserId]);
+GO
+
+-- Creating foreign key on [AspNetRoles3_Id] in table 'AspNetUserRoles3'
+ALTER TABLE [dbo].[AspNetUserRoles3]
+ADD CONSTRAINT [FK_AspNetUserRoles3_AspNetRole]
+    FOREIGN KEY ([AspNetRoles3_Id])
+    REFERENCES [dbo].[AspNetRoles]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [AspNetUsers3_Id] in table 'AspNetUserRoles3'
+ALTER TABLE [dbo].[AspNetUserRoles3]
+ADD CONSTRAINT [FK_AspNetUserRoles3_AspNetUser]
+    FOREIGN KEY ([AspNetUsers3_Id])
+    REFERENCES [dbo].[AspNetUsers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AspNetUserRoles3_AspNetUser'
+CREATE INDEX [IX_FK_AspNetUserRoles3_AspNetUser]
+ON [dbo].[AspNetUserRoles3]
+    ([AspNetUsers3_Id]);
 GO
 
 -- --------------------------------------------------
