@@ -75,7 +75,8 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ExamName" ColumnName="ExamName" />
           <ScalarProperty Name="Prepared" ColumnName="Prepared" />
-          <ScalarProperty Name="CoursId" ColumnName="CoursId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -86,7 +87,7 @@
           <ScalarProperty Name="HomeworkName" ColumnName="HomeworkName" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="DueDate" ColumnName="DueDate" />
-          <ScalarProperty Name="CoursId" ColumnName="CoursId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -96,17 +97,17 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
           <ScalarProperty Name="DueDate" ColumnName="DueDate" />
-          <ScalarProperty Name="CoursId" ColumnName="CoursId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ToDoes">
-      <EntityTypeMapping TypeName="IsTypeOf(Model.ToDo)">
-        <MappingFragment StoreEntitySet="ToDoes">
+    <EntitySetMapping Name="Generals">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.General)">
+        <MappingFragment StoreEntitySet="Generals">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Item" ColumnName="Item" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemNotes" ColumnName="ItemNotes" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -164,6 +165,46 @@
       </EndProperty>
       <EndProperty Name="AspNetUser">
         <ScalarProperty Name="Id" ColumnName="AspNetUsers6_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles7" TypeName="Model.AspNetUserRoles7" StoreEntitySet="AspNetUserRoles7">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles7_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers7_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles8" TypeName="Model.AspNetUserRoles8" StoreEntitySet="AspNetUserRoles8">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles8_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers8_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles9" TypeName="Model.AspNetUserRoles9" StoreEntitySet="AspNetUserRoles9">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles9_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers9_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles10" TypeName="Model.AspNetUserRoles10" StoreEntitySet="AspNetUserRoles10">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles10_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers10_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles11" TypeName="Model.AspNetUserRoles11" StoreEntitySet="AspNetUserRoles11">
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles11_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers11_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

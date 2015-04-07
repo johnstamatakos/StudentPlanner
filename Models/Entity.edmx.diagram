@@ -4,24 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="eec2bea86a254355881eda0f8363bfeb" Name="Diagram1">
+      <Diagram DiagramId="eec2bea86a254355881eda0f8363bfeb" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="1" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="2.25" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="2.875" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="1.125" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="4.5" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Cours" Width="1.5" PointX="6.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Exam" Width="1.5" PointX="8.625" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Homework" Width="1.5" PointX="8.375" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Project" Width="1.5" PointX="8.625" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ToDo" Width="1.5" PointX="4.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Cours" Width="1.5" PointX="6.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Exam" Width="1.5" PointX="9.375" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Homework" Width="1.5" PointX="8.125" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Project" Width="1.5" PointX="10.75" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
         <AssociationConnector Association="Model.CoursExam" />
         <AssociationConnector Association="Model.CoursProject" />
         <AssociationConnector Association="Model.CoursHomework" />
-        <AssociationConnector Association="Model.AspNetUserToDo" />
         <AssociationConnector Association="Model.AspNetUserRoles1" />
         <AssociationConnector Association="Model.AspNetUserRoles2" />
         <AssociationConnector Association="Model.AspNetUserRoles3" />
@@ -29,6 +27,13 @@
         <AssociationConnector Association="Model.AspNetUserCours" />
         <AssociationConnector Association="Model.AspNetUserRoles5" />
         <AssociationConnector Association="Model.AspNetUserRoles6" />
+        <AssociationConnector Association="Model.AspNetUserRoles7" />
+        <AssociationConnector Association="Model.AspNetUserRoles8" />
+        <AssociationConnector Association="Model.AspNetUserRoles9" />
+        <EntityTypeShape EntityType="Model.General" Width="1.5" PointX="4.5" PointY="9.625" />
+        <AssociationConnector Association="Model.AspNetUserRoles10" />
+        <AssociationConnector Association="Model.AspNetUserGeneral" />
+        <AssociationConnector Association="Model.AspNetUserRoles11" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
