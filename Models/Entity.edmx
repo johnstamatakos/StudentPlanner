@@ -832,6 +832,9 @@
           <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserCours" FromRole="Cours" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ExamName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Prepared" Type="Int32" />

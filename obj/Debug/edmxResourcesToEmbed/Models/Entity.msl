@@ -69,17 +69,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Exams">
-      <EntityTypeMapping TypeName="IsTypeOf(Model.Exam)">
-        <MappingFragment StoreEntitySet="Exams">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ExamName" ColumnName="ExamName" />
-          <ScalarProperty Name="Prepared" ColumnName="Prepared" />
-          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Homeworks">
       <EntityTypeMapping TypeName="IsTypeOf(Model.Homework)">
         <MappingFragment StoreEntitySet="Homeworks">
@@ -207,5 +196,16 @@
         <ScalarProperty Name="Id" ColumnName="AspNetUsers11_Id" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Exams">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Exam)" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <MappingFragment StoreEntitySet="Exams">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExamName" ColumnName="ExamName" />
+          <ScalarProperty Name="Prepared" ColumnName="Prepared" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

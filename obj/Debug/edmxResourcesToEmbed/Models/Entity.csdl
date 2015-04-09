@@ -170,7 +170,6 @@
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
     <EntitySet Name="Courses" EntityType="Self.Cours" />
-    <EntitySet Name="Exams" EntityType="Self.Exam" />
     <EntitySet Name="Homeworks" EntityType="Self.Homework" />
     <EntitySet Name="Projects" EntityType="Self.Project" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -250,6 +249,7 @@
       <End Role="AspNetRole" EntitySet="AspNetRoles" />
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <EntitySet Name="Exams" EntityType="Model.Exam" />
   </EntityContainer>
   <Association Name="CoursExam">
     <End Type="Model.Cours" Role="Cours" Multiplicity="1" />
