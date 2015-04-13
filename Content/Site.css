@@ -15,10 +15,109 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#profileTopBar {
+    background-color:rgba(0,0,0,0.7);
+}
+
+#profilePicCol {
+    padding-left:0;
+}
+
+.userImage {
+    width:300px;
+}
+
+#courseList {
+    margin-top:15px;
+}
+
+#courseTable {
+    margin-top:10px;
+}
+
+.courseItemHeader {
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    padding:5px 0px;
+}
+
+.courseItem {
+    color:rgba(255,255,255,0.6);
+    font-size:15px;
+    width:120px;
+}
+
+.mainContent {
+    height:80vh;
+    background:url("img/paper.jpg") no-repeat center center;
+    background-size:cover;
+}
+
+.tabMenu {
+    width:100%;
+}
+
+.taskTab {
+    padding-left:0px;
+    padding-right:0px;
+    text-align:center;
+    font-size:25px;
+}
+
+#taskNav {
+    padding:0px;
+    margin:0px;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color:#59DE59;
+}
+
+.navbar-inverse {
+    margin-bottom:0px;
+}
+
+.itemView{
+    background-color:rgba(0,0,0,0.3);
+    padding:20px;
+    border: 2px solid black;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+}
+
+.itemListHeader {
+    color:black;
+    font-size:20px;
+}
+
+.itemListItem {
+    background-color:black;
+    color:white;
+    font-size:15px;
+}
+
+.table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
+    border-top:none;
+}
+
+.ItemCourseTitle {
+    margin-top:20px;
+    font-size:20px;
+    color:black;
+    background-color:lightgray;
+    padding:10px;
+    border:2px solid black;
+}
+
+.addButton {
+    position:relative;
+    top:-5px;
 }

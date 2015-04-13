@@ -5,30 +5,86 @@
     ViewBag.Title = Model.UserName;
 }
 
-<h2>@Model.UserName</h2>
-<br />
-<img class="userImage" src="@Model.ProfilePicture" />
-
-<p>
-    @Html.ActionLink("Edit Profile", "Edit", new { id = Model.Id })
-</p>
-
-<br />
-<br />
-
-@using (Html.BeginForm("Create", "Cours", new { @class = "courseForm" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.TextArea("coursename", new { @class = "courseTextArea" });
-    @Html.TextArea("days", new { @class = "courseTextArea" });
-    @Html.TextArea("time", new { @class = "courseTextArea" });
-    @Html.TextArea("professor", new { @class = "courseTextArea" });
-    @Html.Hidden("userId", Model.Id);
-    <br />
-    <input type="submit" value="+" class="courseInput btn btn-success">
-}
-<div id="courseList">
-    @Html.Action("getCourses", new { id = Model.Id });
+<div class="container-fluid">
+    <div class="row" id="profileTopBar">
+        <div class="col-md-3" id="profilePicCol">
+            <img class="userImage" src="@Model.ProfilePicture" />
+        </div>
+        <div class="col-md-4">
+            <div id="courseList">
+                @Html.Action("getCourses", new { id = Model.Id })
+            </div>
+        </div>
+    </div>
 </div>
-
-<br />
+<span id="editProfileLink">
+    @Html.ActionLink("Edit Profile", "Edit", new { id = Model.Id })
+</span>
+<div class="container-fluid mainContent">
+    <div class="container">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#taskNav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="taskNav">
+                    <ul class="nav navbar-nav tabMenu">
+                        <li class="active col-md-4 taskTab"><a href="#homework" aria-controls="homework" role="tab" data-toggle="tab">Homework <span class="sr-only">(current)</span></a></li>
+                        <li class="col-md-4 taskTab"><a href="#exams" aria-controls="exams" role="tab" data-toggle="tab">Exams</a></li>
+                        <li class="col-md-4 taskTab"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Projects</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active" id="homework">
+                @foreach (var item in Model.Cours)
+                {
+                    <div class="ItemCourseTitle">@item.CourseName
+                        <span class="pull-right addButton">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#homeworkModal">
+                                <div class="glyphicon glyphicon-plus"></div>
+                                <span>Homework</span>
+                            </button>
+                        </span>
+                    </div>
+                    @Html.Action("getHomeworks", new { id = item.Id})
+                }              
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="exams">
+                @foreach (var item in Model.Cours)
+                {
+                    <div class="ItemCourseTitle">@item.CourseName
+                        <span class="pull-right addButton">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#examModal">
+                                <div class="glyphicon glyphicon-plus"></div>
+                                <span>Exam</span>
+                            </button>
+                        </span>
+                    </div>
+                    @Html.Action("getExams", new { id = item.Id })
+                }            
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="projects">
+                @foreach (var item in Model.Cours)
+                {
+                    <div class="ItemCourseTitle">@item.CourseName
+                        <span class="pull-right addButton">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#projectModal">
+                                <div class="glyphicon glyphicon-plus"></div>
+                                <span>Project</span>
+                            </button>
+                        </span>
+                    </div>
+                    @Html.Action("getProjects", new { id = item.Id })
+                }
+            </div>
+        </div>
+    </div>
+</div>

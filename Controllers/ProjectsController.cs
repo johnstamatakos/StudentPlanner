@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using StudentPlanner.Models;
+using Microsoft.AspNet.Identity;
 
 namespace StudentPlanner.Controllers
 {
@@ -40,7 +41,7 @@ namespace StudentPlanner.Controllers
         public ActionResult Create()
         {
             ViewBag.CourseId = new SelectList(db.Courses, "Id", "CourseName");
-            return View();
+            return RedirectToAction("Details", "Users", new { id = User.Identity.GetUserId() });
         }
 
         // POST: Projects/Create
@@ -54,7 +55,7 @@ namespace StudentPlanner.Controllers
             {
                 db.Projects.Add(project);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Users", new { id = User.Identity.GetUserId() });
             }
 
             ViewBag.CourseId = new SelectList(db.Courses, "Id", "CourseName", project.CourseId);
@@ -112,12 +113,12 @@ namespace StudentPlanner.Controllers
         // POST: Projects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id, string user)
         {
             Project project = db.Projects.Find(id);
             db.Projects.Remove(project);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Users", new { id = user });
         }
 
         protected override void Dispose(bool disposing)

@@ -56,7 +56,7 @@ namespace StudentPlanner.Controllers
             {
                 db.Courses.Add(cours);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Users", new { id = cours.UserId });
             }
 
             ViewBag.UserId = new SelectList(db.AspNetUsers, "Id", "Email", cours.UserId);
@@ -114,12 +114,12 @@ namespace StudentPlanner.Controllers
         // POST: Cours/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id, string user)
         {
             Cours cours = db.Courses.Find(id);
             db.Courses.Remove(cours);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Users", new { id = user });
         }
 
         protected override void Dispose(bool disposing)

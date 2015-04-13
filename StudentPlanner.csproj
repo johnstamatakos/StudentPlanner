@@ -228,6 +228,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\default.jpeg" />
+    <Content Include="Content\img\paper.jpg" />
+    <Content Include="Content\img\paper.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -326,6 +329,9 @@
     <Content Include="Views\Homework\Edit.cshtml" />
     <Content Include="Views\Homework\Index.cshtml" />
     <Content Include="Views\Shared\_examPartial.cshtml" />
+    <Content Include="Views\Shared\_homeworkPartial.cshtml" />
+    <Content Include="Views\Shared\_examsPartial.cshtml" />
+    <Content Include="Views\Shared\_projectsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

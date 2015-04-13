@@ -165,7 +165,7 @@ namespace StudentPlanner.Controllers
                 }
                 else
                 {
-                    var profilePictureString = "/Content/images/profilePictures/default.jpg";
+                    var profilePictureString = "/Content/img/default.jpeg";
                     userRecord.ProfilePicture = profilePictureString;
                     db.SaveChanges();
                 }
@@ -203,7 +203,7 @@ namespace StudentPlanner.Controllers
                 }
                 else
                 {
-                    return "/Content/images/profilePictures/default.jpg";
+                    return "/Content/img/default.jpeg";
                 }
 
             }
@@ -222,7 +222,48 @@ namespace StudentPlanner.Controllers
                               where course.UserId == id
                               select user.Cours).FirstOrDefault();
 
-                return PartialView("_coursePartial", userCourse);
+            return PartialView("_coursePartial", userCourse);
+        }
+
+        public ActionResult getHomeworks(int id)
+        {
+
+            var homework = (from hw in db.Homeworks
+                              join c in db.Courses on hw.CourseId equals c.Id
+                              where hw.CourseId == id
+                              select c.Homework).FirstOrDefault();
+
+            var query = db.Courses.Select(c => new { c.Id, c.CourseName });
+            ViewBag.Courses = new SelectList(query.AsEnumerable(), "Id", "CourseName");
+
+            return PartialView("_homeworkPartial", homework);
+        }
+
+        public ActionResult getExams(int id)
+        {
+
+            var exams = (from e in db.Homeworks
+                            join c in db.Courses on e.CourseId equals c.Id
+                            where e.CourseId == id
+                            select c.Exams).FirstOrDefault();
+
+            var query = db.Courses.Select(c => new { c.Id, c.CourseName });
+            ViewBag.Courses = new SelectList(query.AsEnumerable(), "Id", "CourseName");
+
+            return PartialView("_examsPartial", exams);
+        }
+
+        public ActionResult getProjects(int id)
+        {
+            var projects = (from p in db.Projects
+                         join c in db.Courses on p.CourseId equals c.Id
+                         where p.CourseId == id
+                         select c.Projects).FirstOrDefault();
+
+            var query = db.Courses.Select(c => new { c.Id, c.CourseName });
+            ViewBag.Courses = new SelectList(query.AsEnumerable(), "Id", "CourseName");
+
+            return PartialView("_projectsPartial", projects);
         }
     }
 }
