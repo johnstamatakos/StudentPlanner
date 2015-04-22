@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+    <NavigationProperty Name="AspNetUsers1" Relationship="Model.AspNetUserRoles1" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers2" Relationship="Model.AspNetUserRoles2" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers3" Relationship="Model.AspNetUserRoles3" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers4" Relationship="Model.AspNetUserRoles4" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers5" Relationship="Model.AspNetUserRoles5" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers6" Relationship="Model.AspNetUserRoles6" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers7" Relationship="Model.AspNetUserRoles7" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers8" Relationship="Model.AspNetUserRoles8" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers9" Relationship="Model.AspNetUserRoles9" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers10" Relationship="Model.AspNetUserRoles10" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers11" Relationship="Model.AspNetUserRoles11" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers12" Relationship="Model.AspNetUserRoles12" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers13" Relationship="Model.AspNetUserRoles13" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers14" Relationship="Model.AspNetUserRoles14" FromRole="AspNetRole" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUsers15" Relationship="Model.AspNetUserRoles15" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+    <Property Name="ProfilePicture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AspNetRoles1" Relationship="Model.AspNetUserRoles1" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles2" Relationship="Model.AspNetUserRoles2" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles3" Relationship="Model.AspNetUserRoles3" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles4" Relationship="Model.AspNetUserRoles4" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="Cours" Relationship="Model.AspNetUserCours" FromRole="AspNetUser" ToRole="Cours" />
+    <NavigationProperty Name="AspNetRoles5" Relationship="Model.AspNetUserRoles5" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles6" Relationship="Model.AspNetUserRoles6" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles7" Relationship="Model.AspNetUserRoles7" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles8" Relationship="Model.AspNetUserRoles8" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles9" Relationship="Model.AspNetUserRoles9" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles10" Relationship="Model.AspNetUserRoles10" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="Generals" Relationship="Model.AspNetUserGeneral" FromRole="AspNetUser" ToRole="General" />
+    <NavigationProperty Name="AspNetRoles11" Relationship="Model.AspNetUserRoles11" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles12" Relationship="Model.AspNetUserRoles12" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles13" Relationship="Model.AspNetUserRoles13" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles14" Relationship="Model.AspNetUserRoles14" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <NavigationProperty Name="AspNetRoles15" Relationship="Model.AspNetUserRoles15" FromRole="AspNetUser" ToRole="AspNetRole" />
+  </EntityType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Days" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Time" Type="Time" Precision="7" />
+    <Property Name="Professor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Projects" Relationship="Model.CoursProject" FromRole="Cours" ToRole="Project" />
+    <NavigationProperty Name="Homework" Relationship="Model.CoursHomework" FromRole="Cours" ToRole="Homework" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserCours" FromRole="Cours" ToRole="AspNetUser" />
+    <NavigationProperty Name="Exams" Relationship="Model.CoursExam" FromRole="Cours" ToRole="Exam" />
+  </EntityType>
+  <EntityType Name="Homework">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HomeworkName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DueDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Cour" Relationship="Model.CoursHomework" FromRole="Homework" ToRole="Cours" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DueDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Cour" Relationship="Model.CoursProject" FromRole="Project" ToRole="Cours" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Courses" EntityType="Self.Cours" />
+    <EntitySet Name="Homeworks" EntityType="Self.Homework" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="CoursProject" Association="Model.CoursProject">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="CoursHomework" Association="Model.CoursHomework">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="Homework" EntitySet="Homeworks" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles1" Association="Model.AspNetUserRoles1">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles2" Association="Model.AspNetUserRoles2">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles3" Association="Model.AspNetUserRoles3">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles4" Association="Model.AspNetUserRoles4">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserCours" Association="Model.AspNetUserCours">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="Cours" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles5" Association="Model.AspNetUserRoles5">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles6" Association="Model.AspNetUserRoles6">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles7" Association="Model.AspNetUserRoles7">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles8" Association="Model.AspNetUserRoles8">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles9" Association="Model.AspNetUserRoles9">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="Generals" EntityType="Model.General" />
+    <AssociationSet Name="AspNetUserRoles10" Association="Model.AspNetUserRoles10">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserGeneral" Association="Model.AspNetUserGeneral">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="General" EntitySet="Generals" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles11" Association="Model.AspNetUserRoles11">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles12" Association="Model.AspNetUserRoles12">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles13" Association="Model.AspNetUserRoles13">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles14" Association="Model.AspNetUserRoles14">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="Exams" EntityType="Model.Exam" />
+    <AssociationSet Name="CoursExam" Association="Model.CoursExam">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="Exam" EntitySet="Exams" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles15" Association="Model.AspNetUserRoles15">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="CoursProject">
+    <End Type="Model.Cours" Role="Cours" Multiplicity="1" />
+    <End Type="Model.Project" Role="Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursHomework">
+    <End Type="Model.Cours" Role="Cours" Multiplicity="1" />
+    <End Type="Model.Homework" Role="Homework" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Homework">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles1">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles2">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles3">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles4">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserCours">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.Cours" Role="Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles5">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles6">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles7">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles8">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles9">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityType Name="General">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ItemNotes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserGeneral" FromRole="General" ToRole="AspNetUser" />
+  </EntityType>
+  <Association Name="AspNetUserRoles10">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserGeneral">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.General" Role="General" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="General">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles11">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles12">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles13">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <Association Name="AspNetUserRoles14">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Exam">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExamName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <Property Name="DueDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Cour" Relationship="Model.CoursExam" FromRole="Exam" ToRole="Cours" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="CoursExam">
+    <End Type="Model.Cours" Role="Cours" Multiplicity="1" />
+    <End Type="Model.Exam" Role="Exam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exam">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles15">
+    <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+</Schema>

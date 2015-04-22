@@ -1,0 +1,99 @@
+﻿@model IEnumerable<StudentPlanner.Models.Exam>
+@using Microsoft.AspNet.Identity;
+
+<div class="container-fluid itemView">
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="examModal" tabindex="-1" role="dialog" aria-labelledby="examModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="examModalLabel">Add Exam</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("Create", "Exams", new { @class = "examForm" }))
+                    {
+
+                        <div class="form-horizontal">
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                <h5 class="control-label col-md-4">Exam</h5>
+                                <div class="col-md-8">
+                                    @Html.TextBox("examname", "", new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h5 class="control-label col-md-4">Description</h5>
+                                <div class="col-md-8">
+                                    @Html.TextBox("description", "", new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h5 class="control-label col-md-4">Date</h5>
+                                <div class="col-md-8">
+                                    @Html.TextBox("duedate", "", new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h5 class="control-label col-md-4">Course</h5>
+                                <div class="col-md-8">
+                                    @Html.DropDownList("CourseId", (SelectList)ViewBag.Courses, "", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-offset-5 col-md-2">
+                                <input type="submit" value="Add exam" class="examInput btn btn-success">
+                            </div>
+                        </div>
+                    }
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <table class="table">
+        <tr>
+            <th class="itemListHeader">
+                Exam
+            </th>
+            <th class="itemListHeader">
+                Description
+            </th>
+            <th class="itemListHeader">
+                Date
+            </th>
+            <th></th>
+        </tr>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td class="itemListItem">
+                        @Html.DisplayFor(modelItem => item.ExamName)
+                    </td>
+                    <td class="itemListItem">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td class="itemListItem">
+                        @String.Format("{0:d}", item.DueDate)
+                    </td>
+                    <td>
+                        <a class="deleteButton" href="@Url.Action("Delete", "Exams", new {Id = item.Id, user = User.Identity.GetUserId() })"><span class="glyphicon glyphicon-remove-circle"></span></a>
+                    </td>
+                    
+                </tr>
+            }
+        }
+    </table>
+</div>
