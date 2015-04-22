@@ -16,9 +16,9 @@ namespace StudentPlanner.Models
     {
         public int Id { get; set; }
         public string ExamName { get; set; }
-        public Nullable<int> Prepared { get; set; }
         public int CourseId { get; set; }
-        public string UserId { get; set; }
+        public Nullable<System.DateTime> DueDate { get; set; }
+        public string Description { get; set; }
     
         public virtual Cours Cour { get; set; }
     }

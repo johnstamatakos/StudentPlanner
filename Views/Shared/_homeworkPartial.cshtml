@@ -72,9 +72,6 @@
             <th class="itemListHeader">
                 Due Date
             </th>
-            <th class="itemListHeader">
-                Course
-            </th>
             <th></th>
         </tr>
         @if (Model != null)
@@ -89,13 +86,11 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td class="itemListItem">
-                        @Html.DisplayFor(modelItem => item.DueDate)
-                    </td>
-                    <td class="itemListItem">
-                        @Html.DisplayFor(modelItem => item.Cour.CourseName)
+                        @String.Format("{0:d}", item.DueDate)
                     </td>
                     <td>
-                    <td>@Html.ActionLink("Delete", "Delete", new { Controller = "Homework", Id = item.Id, user = User.Identity.GetUserId() }, null)</td>
+                    <td>
+                        <a class="deleteButton" href="@Url.Action("Delete", "Homework", new {Id = item.Id, user = User.Identity.GetUserId() })"><span class="glyphicon glyphicon-remove-circle"></span></a>
                     </td>
                 </tr>
             }

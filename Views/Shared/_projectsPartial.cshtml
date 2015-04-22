@@ -26,6 +26,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <h5 class="control-label col-md-4">Description</h5>
+                                <div class="col-md-8">
+                                    @Html.TextBox("description", "", new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <h5 class="control-label col-md-4">Due Date</h5>
                                 <div class="col-md-8">
                                     @Html.TextBox("duedate", "", new { @class = "form-control" })
@@ -59,10 +65,10 @@
                 Project
             </th>
             <th class="itemListHeader">
-                Due Date
+                Description
             </th>
             <th class="itemListHeader">
-                Course
+                Due Date
             </th>
             <th></th>
         </tr>
@@ -75,13 +81,14 @@
                         @Html.DisplayFor(modelItem => item.ProjectName)
                     </td>
                     <td class="itemListItem">
-                        @Html.DisplayFor(modelItem => item.DueDate)
+                        @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td class="itemListItem">
-                        @Html.DisplayFor(modelItem => item.Cour.CourseName)
+                        @String.Format("{0:d}", item.DueDate)
                     </td>
                     <td>
-                    <td>@Html.ActionLink("Delete", "Delete", new { Controller = "Projects", Id = item.Id, user = User.Identity.GetUserId() }, null)</td>
+                    <td>
+                        <a class="deleteButton" href="@Url.Action("Delete", "Projects", new {Id = item.Id, user = User.Identity.GetUserId() })"><span class="glyphicon glyphicon-remove-circle"></span></a>
                     </td>
                 </tr>
             }

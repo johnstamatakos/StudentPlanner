@@ -1,28 +1,84 @@
-﻿body {
-    padding-top: 50px;
+﻿/*Bootstrap Override and Initializations*/
+body {
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
-/* Set width on the form input elements since they're 100% wide by default */
+
 input,
 select,
 textarea {
     max-width: 280px;
 }
 
-#profileTopBar {
+
+/*Layout Styles applied to all pages*/
+.mainContainer {
+     padding:0px;
+     height:100vh; 
+}
+
+.mainNavLogo {
+    background:url("img/mainLogo.png") no-repeat;
+    background-size:contain;
+    height:215px;
+    width:215px;
+    margin:0px auto 25px auto;
+}
+
+.menuList {
+    list-style:none;
+    padding-left:0px;
+    padding-top:50px;
+}
+
+.mainNav {
+    height:100%;
+    background-color:black;
+}
+
+.bottomNav {
+    padding:20px;
+    text-align:right;
+}
+
+.bottomNav a {
+    text-decoration:none!important;
+}
+
+.menuli {
+    margin-top:10%;
+    text-align:center;
+}
+
+.navItem {
+    font-size:60px;
+    text-decoration:none!important;
+    color:white;
+}
+
+.navItem span {
+    padding-right:15px;
+}
+
+
+/*Home Page Styles*/
+.homeContent {
+    height:100vh;
+    width:auto;
+    background: url("img/school3.png") no-repeat;
+    background-size:cover;
+}
+
+
+/*Profile Page Styles*/
+.editProfileButton {
+    width:300px;
+}
+
+.profileTopBar {
     background-color:rgba(0,0,0,0.7);
 }
 
@@ -40,6 +96,7 @@ textarea {
 
 #courseTable {
     margin-top:10px;
+    width:100%;
 }
 
 .courseItemHeader {
@@ -52,13 +109,36 @@ textarea {
 .courseItem {
     color:rgba(255,255,255,0.6);
     font-size:15px;
-    width:120px;
+    margin-top:25px;
 }
 
+.infoSlide {
+    padding:10px 50px;
+    margin-bottom:50px;
+}
+
+.panel-group {
+    width:90%;
+    margin:10px auto 10px 40px;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image:none;
+    height:0px;
+    margin-top:17%;
+}
+
+.glyphicon-chevron-left, .glyphicon-chevron-right {
+    margin-top:100px;
+}
+
+.topDate {
+    color:white;
+    text-align:center;
+}
 .mainContent {
-    height:80vh;
-    background:url("img/paper.jpg") no-repeat center center;
-    background-size:cover;
+    height:auto;
+    background-color:rgba(0,0,0,0.7);
 }
 
 .tabMenu {
@@ -78,30 +158,29 @@ textarea {
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-    color:#59DE59;
+    color:#337ab7;
 }
 
 .navbar-inverse {
     margin-bottom:0px;
+    margin-top:20px;
 }
 
 .itemView{
-    background-color:rgba(0,0,0,0.3);
+    background-color:rgba(0,0,0,0.6);
     padding:20px;
     border: 2px solid black;
-    border-bottom-left-radius:10px;
-    border-bottom-right-radius:10px;
+    margin-bottom:20px;
 }
 
 .itemListHeader {
-    color:black;
+    color:lightgray;
     font-size:20px;
 }
 
 .itemListItem {
-    background-color:black;
     color:white;
-    font-size:15px;
+    font-size:17px;
 }
 
 .table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
@@ -121,3 +200,76 @@ textarea {
     position:relative;
     top:-5px;
 }
+
+.dailyTable {
+    text-align:center;
+}
+
+.dailyTd {
+    width:33%;
+}
+
+.deleteButton {
+    color:#ED2626;
+    font-size:20px;
+}
+
+.panel-title a {
+    text-decoration:none;
+}
+
+.panel-default > .panel-heading .badge {
+    background-color:#337ab7;
+}
+
+/*Login Screen Styles*/
+.backgroundContainer {
+    background:url("img/chalkReg.png") no-repeat;
+    height:100vh;
+}
+
+.loginContainer {
+    padding:100px 0px 200px 0px;
+}
+
+.loginFormContainer {
+    background-color:rgba(0,0,0,0.5);
+    padding:30px;
+}
+
+.formText {
+    color:white;
+}
+
+#socialLoginForm {
+    margin-top:50px;
+}
+
+.facebook {
+    background: url("img/fb.png");
+    height:75px;
+    width:75px;
+    background-size:cover;
+    border:none;
+}
+
+.twitter {
+    background: url("img/twitter.png");
+    height:75px;
+    width:75px;
+    background-size:cover;
+    border:none;
+}
+
+.google {
+    background: url("img/google.png");
+    height:75px;
+    width:75px;
+    background-size:cover;
+    border:none;
+}
+
+.facebook:hover, .twitter:hover, .google:hover {
+    opacity:0.7;
+}
+

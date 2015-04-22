@@ -18,6 +18,7 @@ namespace StudentPlanner.Models
         public string ProjectName { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
         public int CourseId { get; set; }
+        public string Description { get; set; }
     
         public virtual Cours Cour { get; set; }
     }

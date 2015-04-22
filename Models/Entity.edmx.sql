@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/07/2015 17:59:43
+-- Date Created: 04/21/2015 17:23:59
 -- Generated from EDMX file: C:\Users\jstam397\Desktop\StudentPlanner\StudentPlanner\Models\Entity.edmx
 -- --------------------------------------------------
 
@@ -23,104 +23,17 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[AspNetUserLogins] DROP CONSTRAINT [FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId];
 GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles_AspNetRoles]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles] DROP CONSTRAINT [FK_AspNetUserRoles_AspNetRoles];
+IF OBJECT_ID(N'[dbo].[FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AspNetUserRoles] DROP CONSTRAINT [FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId];
 GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles_AspNetUsers]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles] DROP CONSTRAINT [FK_AspNetUserRoles_AspNetUsers];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CoursExam]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Exams] DROP CONSTRAINT [FK_CoursExam];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CoursProject]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Projects] DROP CONSTRAINT [FK_CoursProject];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CoursHomework]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Homeworks] DROP CONSTRAINT [FK_CoursHomework];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles1_AspNetRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles1] DROP CONSTRAINT [FK_AspNetUserRoles1_AspNetRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles1_AspNetUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles1] DROP CONSTRAINT [FK_AspNetUserRoles1_AspNetUser];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles2_AspNetRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles2] DROP CONSTRAINT [FK_AspNetUserRoles2_AspNetRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles2_AspNetUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles2] DROP CONSTRAINT [FK_AspNetUserRoles2_AspNetUser];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles3_AspNetRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles3] DROP CONSTRAINT [FK_AspNetUserRoles3_AspNetRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles3_AspNetUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles3] DROP CONSTRAINT [FK_AspNetUserRoles3_AspNetUser];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles4_AspNetRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles4] DROP CONSTRAINT [FK_AspNetUserRoles4_AspNetRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles4_AspNetUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles4] DROP CONSTRAINT [FK_AspNetUserRoles4_AspNetUser];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserCours]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Courses] DROP CONSTRAINT [FK_AspNetUserCours];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles5_AspNetRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles5] DROP CONSTRAINT [FK_AspNetUserRoles5_AspNetRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles5_AspNetUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles5] DROP CONSTRAINT [FK_AspNetUserRoles5_AspNetUser];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles6_AspNetRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles6] DROP CONSTRAINT [FK_AspNetUserRoles6_AspNetRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles6_AspNetUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles6] DROP CONSTRAINT [FK_AspNetUserRoles6_AspNetUser];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles7_AspNetRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles7] DROP CONSTRAINT [FK_AspNetUserRoles7_AspNetRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles7_AspNetUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles7] DROP CONSTRAINT [FK_AspNetUserRoles7_AspNetUser];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles8_AspNetRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles8] DROP CONSTRAINT [FK_AspNetUserRoles8_AspNetRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles8_AspNetUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles8] DROP CONSTRAINT [FK_AspNetUserRoles8_AspNetUser];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles9_AspNetRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles9] DROP CONSTRAINT [FK_AspNetUserRoles9_AspNetRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles9_AspNetUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles9] DROP CONSTRAINT [FK_AspNetUserRoles9_AspNetUser];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles10_AspNetRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles10] DROP CONSTRAINT [FK_AspNetUserRoles10_AspNetRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles10_AspNetUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles10] DROP CONSTRAINT [FK_AspNetUserRoles10_AspNetUser];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserGeneral]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Generals] DROP CONSTRAINT [FK_AspNetUserGeneral];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles11_AspNetRole]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles11] DROP CONSTRAINT [FK_AspNetUserRoles11_AspNetRole];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserRoles11_AspNetUser]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AspNetUserRoles11] DROP CONSTRAINT [FK_AspNetUserRoles11_AspNetUser];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AspNetUserExam]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Exams] DROP CONSTRAINT [FK_AspNetUserExam];
+IF OBJECT_ID(N'[dbo].[FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AspNetUserRoles] DROP CONSTRAINT [FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[C__MigrationHistory]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[C__MigrationHistory];
-GO
 IF OBJECT_ID(N'[dbo].[AspNetRoles]', 'U') IS NOT NULL
     DROP TABLE [dbo].[AspNetRoles];
 GO
@@ -129,6 +42,9 @@ IF OBJECT_ID(N'[dbo].[AspNetUserClaims]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[AspNetUserLogins]', 'U') IS NOT NULL
     DROP TABLE [dbo].[AspNetUserLogins];
+GO
+IF OBJECT_ID(N'[dbo].[AspNetUserRoles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AspNetUserRoles];
 GO
 IF OBJECT_ID(N'[dbo].[AspNetUsers]', 'U') IS NOT NULL
     DROP TABLE [dbo].[AspNetUsers];
@@ -144,45 +60,6 @@ IF OBJECT_ID(N'[dbo].[Homeworks]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Projects]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Projects];
-GO
-IF OBJECT_ID(N'[dbo].[Generals]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Generals];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles1]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles1];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles2]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles2];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles3]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles3];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles4]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles4];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles5]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles5];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles6]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles6];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles7]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles7];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles8]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles8];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles9]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles9];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles10]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles10];
-GO
-IF OBJECT_ID(N'[dbo].[AspNetUserRoles11]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[AspNetUserRoles11];
 GO
 
 -- --------------------------------------------------
@@ -251,16 +128,6 @@ CREATE TABLE [dbo].[Courses] (
 );
 GO
 
--- Creating table 'Exams'
-CREATE TABLE [dbo].[Exams] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [ExamName] varchar(50)  NULL,
-    [Prepared] int  NULL,
-    [CourseId] int  NOT NULL,
-    [UserId] varchar(128)  NOT NULL
-);
-GO
-
 -- Creating table 'Homeworks'
 CREATE TABLE [dbo].[Homeworks] (
     [Id] int IDENTITY(1,1) NOT NULL,
@@ -276,7 +143,8 @@ CREATE TABLE [dbo].[Projects] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [ProjectName] varchar(50)  NULL,
     [DueDate] datetime  NULL,
-    [CourseId] int  NOT NULL
+    [CourseId] int  NOT NULL,
+    [Description] varchar(50)  NULL
 );
 GO
 
@@ -286,6 +154,16 @@ CREATE TABLE [dbo].[Generals] (
     [ItemName] varchar(50)  NULL,
     [ItemNotes] varchar(50)  NULL,
     [UserId] nvarchar(128)  NOT NULL
+);
+GO
+
+-- Creating table 'Exams'
+CREATE TABLE [dbo].[Exams] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [ExamName] varchar(50)  NULL,
+    [CourseId] int  NOT NULL,
+    [DueDate] datetime  NULL,
+    [Description] varchar(50)  NULL
 );
 GO
 
@@ -373,6 +251,34 @@ CREATE TABLE [dbo].[AspNetUserRoles11] (
 );
 GO
 
+-- Creating table 'AspNetUserRoles12'
+CREATE TABLE [dbo].[AspNetUserRoles12] (
+    [AspNetRoles12_Id] nvarchar(128)  NOT NULL,
+    [AspNetUsers12_Id] nvarchar(128)  NOT NULL
+);
+GO
+
+-- Creating table 'AspNetUserRoles13'
+CREATE TABLE [dbo].[AspNetUserRoles13] (
+    [AspNetRoles13_Id] nvarchar(128)  NOT NULL,
+    [AspNetUsers13_Id] nvarchar(128)  NOT NULL
+);
+GO
+
+-- Creating table 'AspNetUserRoles14'
+CREATE TABLE [dbo].[AspNetUserRoles14] (
+    [AspNetRoles14_Id] nvarchar(128)  NOT NULL,
+    [AspNetUsers14_Id] nvarchar(128)  NOT NULL
+);
+GO
+
+-- Creating table 'AspNetUserRoles15'
+CREATE TABLE [dbo].[AspNetUserRoles15] (
+    [AspNetRoles15_Id] nvarchar(128)  NOT NULL,
+    [AspNetUsers15_Id] nvarchar(128)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -413,12 +319,6 @@ ADD CONSTRAINT [PK_Courses]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Exams'
-ALTER TABLE [dbo].[Exams]
-ADD CONSTRAINT [PK_Exams]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
 -- Creating primary key on [Id] in table 'Homeworks'
 ALTER TABLE [dbo].[Homeworks]
 ADD CONSTRAINT [PK_Homeworks]
@@ -434,6 +334,12 @@ GO
 -- Creating primary key on [Id] in table 'Generals'
 ALTER TABLE [dbo].[Generals]
 ADD CONSTRAINT [PK_Generals]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Exams'
+ALTER TABLE [dbo].[Exams]
+ADD CONSTRAINT [PK_Exams]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -509,6 +415,30 @@ ADD CONSTRAINT [PK_AspNetUserRoles11]
     PRIMARY KEY CLUSTERED ([AspNetRoles11_Id], [AspNetUsers11_Id] ASC);
 GO
 
+-- Creating primary key on [AspNetRoles12_Id], [AspNetUsers12_Id] in table 'AspNetUserRoles12'
+ALTER TABLE [dbo].[AspNetUserRoles12]
+ADD CONSTRAINT [PK_AspNetUserRoles12]
+    PRIMARY KEY CLUSTERED ([AspNetRoles12_Id], [AspNetUsers12_Id] ASC);
+GO
+
+-- Creating primary key on [AspNetRoles13_Id], [AspNetUsers13_Id] in table 'AspNetUserRoles13'
+ALTER TABLE [dbo].[AspNetUserRoles13]
+ADD CONSTRAINT [PK_AspNetUserRoles13]
+    PRIMARY KEY CLUSTERED ([AspNetRoles13_Id], [AspNetUsers13_Id] ASC);
+GO
+
+-- Creating primary key on [AspNetRoles14_Id], [AspNetUsers14_Id] in table 'AspNetUserRoles14'
+ALTER TABLE [dbo].[AspNetUserRoles14]
+ADD CONSTRAINT [PK_AspNetUserRoles14]
+    PRIMARY KEY CLUSTERED ([AspNetRoles14_Id], [AspNetUsers14_Id] ASC);
+GO
+
+-- Creating primary key on [AspNetRoles15_Id], [AspNetUsers15_Id] in table 'AspNetUserRoles15'
+ALTER TABLE [dbo].[AspNetUserRoles15]
+ADD CONSTRAINT [PK_AspNetUserRoles15]
+    PRIMARY KEY CLUSTERED ([AspNetRoles15_Id], [AspNetUsers15_Id] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
@@ -565,21 +495,6 @@ GO
 CREATE INDEX [IX_FK_AspNetUserRoles_AspNetUsers]
 ON [dbo].[AspNetUserRoles]
     ([AspNetUsers_Id]);
-GO
-
--- Creating foreign key on [CourseId] in table 'Exams'
-ALTER TABLE [dbo].[Exams]
-ADD CONSTRAINT [FK_CoursExam]
-    FOREIGN KEY ([CourseId])
-    REFERENCES [dbo].[Courses]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_CoursExam'
-CREATE INDEX [IX_FK_CoursExam]
-ON [dbo].[Exams]
-    ([CourseId]);
 GO
 
 -- Creating foreign key on [CourseId] in table 'Projects'
@@ -904,6 +819,117 @@ GO
 CREATE INDEX [IX_FK_AspNetUserRoles11_AspNetUser]
 ON [dbo].[AspNetUserRoles11]
     ([AspNetUsers11_Id]);
+GO
+
+-- Creating foreign key on [AspNetRoles12_Id] in table 'AspNetUserRoles12'
+ALTER TABLE [dbo].[AspNetUserRoles12]
+ADD CONSTRAINT [FK_AspNetUserRoles12_AspNetRole]
+    FOREIGN KEY ([AspNetRoles12_Id])
+    REFERENCES [dbo].[AspNetRoles]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [AspNetUsers12_Id] in table 'AspNetUserRoles12'
+ALTER TABLE [dbo].[AspNetUserRoles12]
+ADD CONSTRAINT [FK_AspNetUserRoles12_AspNetUser]
+    FOREIGN KEY ([AspNetUsers12_Id])
+    REFERENCES [dbo].[AspNetUsers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AspNetUserRoles12_AspNetUser'
+CREATE INDEX [IX_FK_AspNetUserRoles12_AspNetUser]
+ON [dbo].[AspNetUserRoles12]
+    ([AspNetUsers12_Id]);
+GO
+
+-- Creating foreign key on [AspNetRoles13_Id] in table 'AspNetUserRoles13'
+ALTER TABLE [dbo].[AspNetUserRoles13]
+ADD CONSTRAINT [FK_AspNetUserRoles13_AspNetRole]
+    FOREIGN KEY ([AspNetRoles13_Id])
+    REFERENCES [dbo].[AspNetRoles]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [AspNetUsers13_Id] in table 'AspNetUserRoles13'
+ALTER TABLE [dbo].[AspNetUserRoles13]
+ADD CONSTRAINT [FK_AspNetUserRoles13_AspNetUser]
+    FOREIGN KEY ([AspNetUsers13_Id])
+    REFERENCES [dbo].[AspNetUsers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AspNetUserRoles13_AspNetUser'
+CREATE INDEX [IX_FK_AspNetUserRoles13_AspNetUser]
+ON [dbo].[AspNetUserRoles13]
+    ([AspNetUsers13_Id]);
+GO
+
+-- Creating foreign key on [AspNetRoles14_Id] in table 'AspNetUserRoles14'
+ALTER TABLE [dbo].[AspNetUserRoles14]
+ADD CONSTRAINT [FK_AspNetUserRoles14_AspNetRole]
+    FOREIGN KEY ([AspNetRoles14_Id])
+    REFERENCES [dbo].[AspNetRoles]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [AspNetUsers14_Id] in table 'AspNetUserRoles14'
+ALTER TABLE [dbo].[AspNetUserRoles14]
+ADD CONSTRAINT [FK_AspNetUserRoles14_AspNetUser]
+    FOREIGN KEY ([AspNetUsers14_Id])
+    REFERENCES [dbo].[AspNetUsers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AspNetUserRoles14_AspNetUser'
+CREATE INDEX [IX_FK_AspNetUserRoles14_AspNetUser]
+ON [dbo].[AspNetUserRoles14]
+    ([AspNetUsers14_Id]);
+GO
+
+-- Creating foreign key on [CourseId] in table 'Exams'
+ALTER TABLE [dbo].[Exams]
+ADD CONSTRAINT [FK_CoursExam]
+    FOREIGN KEY ([CourseId])
+    REFERENCES [dbo].[Courses]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CoursExam'
+CREATE INDEX [IX_FK_CoursExam]
+ON [dbo].[Exams]
+    ([CourseId]);
+GO
+
+-- Creating foreign key on [AspNetRoles15_Id] in table 'AspNetUserRoles15'
+ALTER TABLE [dbo].[AspNetUserRoles15]
+ADD CONSTRAINT [FK_AspNetUserRoles15_AspNetRole]
+    FOREIGN KEY ([AspNetRoles15_Id])
+    REFERENCES [dbo].[AspNetRoles]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [AspNetUsers15_Id] in table 'AspNetUserRoles15'
+ALTER TABLE [dbo].[AspNetUserRoles15]
+ADD CONSTRAINT [FK_AspNetUserRoles15_AspNetUser]
+    FOREIGN KEY ([AspNetUsers15_Id])
+    REFERENCES [dbo].[AspNetUsers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AspNetUserRoles15_AspNetUser'
+CREATE INDEX [IX_FK_AspNetUserRoles15_AspNetUser]
+ON [dbo].[AspNetUserRoles15]
+    ([AspNetUsers15_Id]);
 GO
 
 -- --------------------------------------------------

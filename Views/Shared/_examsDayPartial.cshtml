@@ -1,0 +1,25 @@
+﻿@model IEnumerable<StudentPlanner.Models.Exam>
+@using Microsoft.AspNet.Identity;
+
+<table class="table dailyTable">
+    <tr></tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td class="dailyTd">
+                    @Html.DisplayFor(modelItem => item.ExamName)
+                </td>
+                <td class="dailyTd">
+                    @Html.DisplayFor(modelItem => item.Cour.CourseName)
+                </td>
+                <td class="dailyTd">
+                    @String.Format("{0:d}", item.DueDate)
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+

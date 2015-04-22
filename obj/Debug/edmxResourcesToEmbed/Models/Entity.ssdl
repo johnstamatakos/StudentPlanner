@@ -7,10 +7,10 @@
     <EntitySet Name="AspNetUserLogins" EntityType="Model.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="AspNetUsers" EntityType="Model.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Courses" EntityType="Model.Store.Courses" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Exams" EntityType="Model.Store.Exams" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Homeworks" EntityType="Model.Store.Homeworks" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Projects" EntityType="Model.Store.Projects" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Generals" EntityType="Model.Store.Generals" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Exams" EntityType="Model.Store.Exams" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="AspNetUserRoles" EntityType="Model.Store.AspNetUserRoles" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="AspNetUserRoles1" EntityType="Model.Store.AspNetUserRoles1" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="AspNetUserRoles2" EntityType="Model.Store.AspNetUserRoles2" store:Type="Tables" Schema="dbo" />
@@ -23,6 +23,10 @@
     <EntitySet Name="AspNetUserRoles9" EntityType="Model.Store.AspNetUserRoles9" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="AspNetUserRoles10" EntityType="Model.Store.AspNetUserRoles10" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="AspNetUserRoles11" EntityType="Model.Store.AspNetUserRoles11" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserRoles12" EntityType="Model.Store.AspNetUserRoles12" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserRoles13" EntityType="Model.Store.AspNetUserRoles13" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserRoles14" EntityType="Model.Store.AspNetUserRoles14" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserRoles15" EntityType="Model.Store.AspNetUserRoles15" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Model.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -38,10 +42,6 @@
     <AssociationSet Name="FK_AspNetUserRoles_AspNetUsers" Association="Model.Store.FK_AspNetUserRoles_AspNetUsers">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
-    </AssociationSet>
-    <AssociationSet Name="CoursExam" Association="Model.Store.CoursExam">
-      <End Role="Cours" EntitySet="Courses" />
-      <End Role="Exam" EntitySet="Exams" />
     </AssociationSet>
     <AssociationSet Name="CoursProject" Association="Model.Store.CoursProject">
       <End Role="Cours" EntitySet="Courses" />
@@ -147,6 +147,42 @@
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="AspNetUserRoles11" EntitySet="AspNetUserRoles11" />
     </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles12_AspNetRole" Association="Model.Store.FK_AspNetUserRoles12_AspNetRole">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles12" EntitySet="AspNetUserRoles12" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles12_AspNetUser" Association="Model.Store.FK_AspNetUserRoles12_AspNetUser">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles12" EntitySet="AspNetUserRoles12" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles13_AspNetRole" Association="Model.Store.FK_AspNetUserRoles13_AspNetRole">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles13" EntitySet="AspNetUserRoles13" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles13_AspNetUser" Association="Model.Store.FK_AspNetUserRoles13_AspNetUser">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles13" EntitySet="AspNetUserRoles13" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles14_AspNetRole" Association="Model.Store.FK_AspNetUserRoles14_AspNetRole">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles14" EntitySet="AspNetUserRoles14" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles14_AspNetUser" Association="Model.Store.FK_AspNetUserRoles14_AspNetUser">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles14" EntitySet="AspNetUserRoles14" />
+    </AssociationSet>
+    <AssociationSet Name="CoursExam" Association="Model.Store.CoursExam">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="Exam" EntitySet="Exams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles15_AspNetRole" Association="Model.Store.FK_AspNetUserRoles15_AspNetRole">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles15" EntitySet="AspNetUserRoles15" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AspNetUserRoles15_AspNetUser" Association="Model.Store.FK_AspNetUserRoles15_AspNetUser">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles15" EntitySet="AspNetUserRoles15" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="C__MigrationHistory">
     <Key>
@@ -213,16 +249,6 @@
     <Property Name="Professor" Type="varchar" Nullable="true" MaxLength="50" />
     <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
   </EntityType>
-  <EntityType Name="Exams">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ExamName" Type="varchar" Nullable="true" MaxLength="50" />
-    <Property Name="Prepared" Type="int" Nullable="true" />
-    <Property Name="CourseId" Type="int" Nullable="false" />
-    <Property Name="UserId" Type="varchar" Nullable="false" MaxLength="128" />
-  </EntityType>
   <EntityType Name="Homeworks">
     <Key>
       <PropertyRef Name="Id" />
@@ -241,6 +267,7 @@
     <Property Name="ProjectName" Type="varchar" Nullable="true" MaxLength="50" />
     <Property Name="DueDate" Type="datetime" Nullable="true" />
     <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="50" />
   </EntityType>
   <EntityType Name="Generals">
     <Key>
@@ -250,6 +277,16 @@
     <Property Name="ItemName" Type="varchar" Nullable="true" MaxLength="50" />
     <Property Name="ItemNotes" Type="varchar" Nullable="true" MaxLength="50" />
     <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Exams">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamName" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="DueDate" Type="datetime" Nullable="true" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="50" />
   </EntityType>
   <EntityType Name="AspNetUserRoles">
     <Key>
@@ -347,6 +384,38 @@
     <Property Name="AspNetRoles11_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
     <Property Name="AspNetUsers11_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
   </EntityType>
+  <EntityType Name="AspNetUserRoles12">
+    <Key>
+      <PropertyRef Name="AspNetRoles12_Id" />
+      <PropertyRef Name="AspNetUsers12_Id" />
+    </Key>
+    <Property Name="AspNetRoles12_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="AspNetUsers12_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles13">
+    <Key>
+      <PropertyRef Name="AspNetRoles13_Id" />
+      <PropertyRef Name="AspNetUsers13_Id" />
+    </Key>
+    <Property Name="AspNetRoles13_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="AspNetUsers13_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles14">
+    <Key>
+      <PropertyRef Name="AspNetRoles14_Id" />
+      <PropertyRef Name="AspNetUsers14_Id" />
+    </Key>
+    <Property Name="AspNetRoles14_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="AspNetUsers14_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles15">
+    <Key>
+      <PropertyRef Name="AspNetRoles15_Id" />
+      <PropertyRef Name="AspNetUsers15_Id" />
+    </Key>
+    <Property Name="AspNetRoles15_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="AspNetUsers15_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Model.Store.AspNetUsers" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -372,18 +441,6 @@
       </Principal>
       <Dependent Role="AspNetUserLogins">
         <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CoursExam">
-    <End Role="Cours" Type="Model.Store.Courses" Multiplicity="1" />
-    <End Role="Exam" Type="Model.Store.Exams" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cours">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Exam">
-        <PropertyRef Name="CourseId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -432,6 +489,18 @@
       </Principal>
       <Dependent Role="General">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursExam">
+    <End Role="Cours" Type="Model.Store.Courses" Multiplicity="1" />
+    <End Role="Exam" Type="Model.Store.Exams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exam">
+        <PropertyRef Name="CourseId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -720,6 +789,102 @@
       </Principal>
       <Dependent Role="AspNetUserRoles11">
         <PropertyRef Name="AspNetUsers11_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles12_AspNetRole">
+    <End Role="AspNetRole" Type="Model.Store.AspNetRoles" Multiplicity="1" />
+    <End Role="AspNetUserRoles12" Type="Model.Store.AspNetUserRoles12" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles12">
+        <PropertyRef Name="AspNetRoles12_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles12_AspNetUser">
+    <End Role="AspNetUserRoles12" Type="Model.Store.AspNetUserRoles12" Multiplicity="*" />
+    <End Role="AspNetUser" Type="Model.Store.AspNetUsers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles12">
+        <PropertyRef Name="AspNetUsers12_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles13_AspNetRole">
+    <End Role="AspNetRole" Type="Model.Store.AspNetRoles" Multiplicity="1" />
+    <End Role="AspNetUserRoles13" Type="Model.Store.AspNetUserRoles13" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles13">
+        <PropertyRef Name="AspNetRoles13_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles13_AspNetUser">
+    <End Role="AspNetUserRoles13" Type="Model.Store.AspNetUserRoles13" Multiplicity="*" />
+    <End Role="AspNetUser" Type="Model.Store.AspNetUsers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles13">
+        <PropertyRef Name="AspNetUsers13_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles14_AspNetRole">
+    <End Role="AspNetRole" Type="Model.Store.AspNetRoles" Multiplicity="1" />
+    <End Role="AspNetUserRoles14" Type="Model.Store.AspNetUserRoles14" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles14">
+        <PropertyRef Name="AspNetRoles14_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles14_AspNetUser">
+    <End Role="AspNetUserRoles14" Type="Model.Store.AspNetUserRoles14" Multiplicity="*" />
+    <End Role="AspNetUser" Type="Model.Store.AspNetUsers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles14">
+        <PropertyRef Name="AspNetUsers14_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles15_AspNetRole">
+    <End Role="AspNetRole" Type="Model.Store.AspNetRoles" Multiplicity="1" />
+    <End Role="AspNetUserRoles15" Type="Model.Store.AspNetUserRoles15" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles15">
+        <PropertyRef Name="AspNetRoles15_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AspNetUserRoles15_AspNetUser">
+    <End Role="AspNetUserRoles15" Type="Model.Store.AspNetUserRoles15" Multiplicity="*" />
+    <End Role="AspNetUser" Type="Model.Store.AspNetUsers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles15">
+        <PropertyRef Name="AspNetUsers15_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

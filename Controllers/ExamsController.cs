@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using StudentPlanner.Models;
+using Microsoft.AspNet.Identity;
 
 namespace StudentPlanner.Controllers
 {
@@ -40,7 +41,7 @@ namespace StudentPlanner.Controllers
         public ActionResult Create()
         {
             ViewBag.CourseId = new SelectList(db.Courses, "Id", "CourseName");
-            return View();
+            return RedirectToAction("Details", "Users", new { id = User.Identity.GetUserId() });
         }
 
         // POST: Exams/Create
@@ -48,13 +49,13 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ExamName,Prepared,CourseId")] Exam exam)
+        public ActionResult Create([Bind(Include = "Id,ExamName,Description,CourseId,DueDate")] Exam exam)
         {
             if (ModelState.IsValid)
             {
                 db.Exams.Add(exam);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Users", new { id = User.Identity.GetUserId() });
             }
 
             ViewBag.CourseId = new SelectList(db.Courses, "Id", "CourseName", exam.CourseId);
@@ -82,7 +83,7 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ExamName,Prepared,CourseId")] Exam exam)
+        public ActionResult Edit([Bind(Include = "Id,ExamName,CourseId,DueDate")] Exam exam)
         {
             if (ModelState.IsValid)
             {
@@ -112,12 +113,12 @@ namespace StudentPlanner.Controllers
         // POST: Exams/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id, string user)
         {
             Exam exam = db.Exams.Find(id);
             db.Exams.Remove(exam);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Users", new { id = user });
         }
 
         protected override void Dispose(bool disposing)

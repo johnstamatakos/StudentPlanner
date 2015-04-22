@@ -20,7 +20,7 @@ namespace StudentPlanner.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Calendar()
         {
             ViewBag.Message = "Your contact page.";
 

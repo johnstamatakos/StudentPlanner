@@ -28,6 +28,10 @@ namespace StudentPlanner.Models
             this.AspNetUsers9 = new HashSet<AspNetUser>();
             this.AspNetUsers10 = new HashSet<AspNetUser>();
             this.AspNetUsers11 = new HashSet<AspNetUser>();
+            this.AspNetUsers12 = new HashSet<AspNetUser>();
+            this.AspNetUsers13 = new HashSet<AspNetUser>();
+            this.AspNetUsers14 = new HashSet<AspNetUser>();
+            this.AspNetUsers15 = new HashSet<AspNetUser>();
         }
     
         public string Id { get; set; }
@@ -45,5 +49,9 @@ namespace StudentPlanner.Models
         public virtual ICollection<AspNetUser> AspNetUsers9 { get; set; }
         public virtual ICollection<AspNetUser> AspNetUsers10 { get; set; }
         public virtual ICollection<AspNetUser> AspNetUsers11 { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers12 { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers13 { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers14 { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers15 { get; set; }
     }
 }

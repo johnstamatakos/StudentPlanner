@@ -6,24 +6,344 @@
 }
 
 <div class="container-fluid">
-    <div class="row" id="profileTopBar">
+    <div class="row profileTopBar">
         <div class="col-md-3" id="profilePicCol">
             <img class="userImage" src="@Model.ProfilePicture" />
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div id="courseList">
                 @Html.Action("getCourses", new { id = Model.Id })
             </div>
         </div>
+        <div class="col-md-6" style="padding-right:0px;">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false" style="min-height:300px;">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    
+                    <!--Day One-->
+                    <div class="item active infoSlide">
+                        <h3 class="topDate">Today - @DateTime.Today.ToShortDateString()</h3>
+                        <div class="panel-group" id="dayOne" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d1HeadingOne">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#dayOne" href="#d1CollapseOne" aria-expanded="true" aria-controls="d1CollapseOne">
+                                            Homeworks <span class="badge pull-right">@Html.Action("getHwCount", new { d = DateTime.Today })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d1CollapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d1HeadingOne">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {                                            
+                                            @Html.Action("getDailyHomeworks", new { d = DateTime.Today, id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d1HeadingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#dayOne" href="#d1CollapseTwo" aria-expanded="false" aria-controls="d1CollapseTwo">
+                                            Exams <span class="badge pull-right">@Html.Action("getExamCount", new { d = DateTime.Today })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d1CollapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d1HeadingTwo">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyExams", new { d = DateTime.Today, id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d1HeadingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#dayOne" href="#d1CollapseThree" aria-expanded="false" aria-controls="d1CollapseThree">
+                                            Projects <span class="badge pull-right">@Html.Action("getExamCount", new { d = DateTime.Today })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d1CollapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d1HeadingThree">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyProjects", new { d = DateTime.Today, id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Day Two-->
+                    <div class="item infoSlide">
+                        <h3 class="topDate">@DateTime.Today.AddDays(1).DayOfWeek - @DateTime.Today.AddDays(1).ToShortDateString()</h3>
+                        <div class="panel-group" id="dayTwo" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d2headingOne">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#dayTwo" href="#d2collapseOne" aria-expanded="true" aria-controls="d2collapseOne">
+                                            Homeworks <span class="badge pull-right">@Html.Action("getHwCount", new { d = DateTime.Today.AddDays(1) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d2collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d2headingOne">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyHomeworks", new { d = DateTime.Today.AddDays(1), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d2headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#dayTwo" href="#d2collapseTwo" aria-expanded="false" aria-controls="d2collapseTwo">
+                                            Exams <span class="badge pull-right">@Html.Action("getExamCount", new { d = DateTime.Today.AddDays(1) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d2collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d2headingTwo">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyExams", new { d = DateTime.Today.AddDays(1), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d2headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#dayTwo" href="#d2collapseThree" aria-expanded="false" aria-controls="d2collapseThree">
+                                            Projects <span class="badge pull-right">@Html.Action("getExamCount", new { d = DateTime.Today.AddDays(1) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d2collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d2headingThree">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyProjects", new { d = DateTime.Today.AddDays(1), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Day Three-->
+                    <div class="item infoSlide">
+                        <h3 class="topDate">@DateTime.Today.AddDays(2).DayOfWeek - @DateTime.Today.AddDays(2).ToShortDateString()</h3>
+                        <div class="panel-group" id="dayThree" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d3headingOne">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#dayThree" href="#d3collapseOne" aria-expanded="true" aria-controls="d3collapseOne">
+                                            Homeworks <span class="badge pull-right">@Html.Action("getHwCount", new { d = DateTime.Today.AddDays(2) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d3collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d3headingOne">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyHomeworks", new { d = DateTime.Today.AddDays(2), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d3headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#dayThree" href="#d3collapseTwo" aria-expanded="false" aria-controls="d3collapseTwo">
+                                            Exams <span class="badge pull-right">@Html.Action("getExamCount", new { d = DateTime.Today.AddDays(2) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d3collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d3headingTwo">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyExams", new { d = DateTime.Today.AddDays(2), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d3headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#dayThree" href="#d3collapseThree" aria-expanded="false" aria-controls="d3collapseThree">
+                                            Projects <span class="badge pull-right">@Html.Action("getExamCount", new { d = DateTime.Today.AddDays(2) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d3collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d3headingThree">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyProjects", new { d = DateTime.Today.AddDays(2), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Day Four-->
+                    <div class="item infoSlide">
+                        <h3 class="topDate">@DateTime.Today.AddDays(3).DayOfWeek - @DateTime.Today.AddDays(3).ToShortDateString()</h3>
+                        <div class="panel-group" id="dayFour" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d4headingOne">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#dayFour" href="#d4collapseOne" aria-expanded="true" aria-controls="d4collapseOne">
+                                            Homeworks <span class="badge pull-right">@Html.Action("getHwCount", new { d = DateTime.Today.AddDays(3) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d4collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d4headingOne">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyHomeworks", new { d = DateTime.Today.AddDays(3), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d4headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#dayFour" href="#d4collapseTwo" aria-expanded="false" aria-controls="d4collapseTwo">
+                                            Exams <span class="badge pull-right">@Html.Action("getExamCount", new { d = DateTime.Today.AddDays(3) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d4collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d4headingTwo">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyExams", new { d = DateTime.Today.AddDays(3), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d4headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#dayFour" href="#d4collapseThree" aria-expanded="false" aria-controls="d4collapseThree">
+                                            Projects <span class="badge pull-right">@Html.Action("getExamCount", new { d = DateTime.Today.AddDays(3) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d4collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d4headingThree">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyProjects", new { d = DateTime.Today.AddDays(3), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Day Five-->
+                    <div class="item infoSlide">
+                        <h3 class="topDate">@DateTime.Today.AddDays(4).DayOfWeek - @DateTime.Today.AddDays(4).ToShortDateString()</h3>
+                        <div class="panel-group" id="dayFive" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d5headingOne">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#dayFive" href="#d5collapseOne" aria-expanded="true" aria-controls="d5collapseOne">
+                                            Homeworks <span class="badge pull-right">@Html.Action("getHwCount", new { d = DateTime.Today.AddDays(4) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d5collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d5headingOne">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyHomeworks", new { d = DateTime.Today.AddDays(4), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d5headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#dayFive" href="#d5collapseTwo" aria-expanded="false" aria-controls="d5collapseTwo">
+                                            Exams <span class="badge pull-right">@Html.Action("getExamCount", new { d = DateTime.Today.AddDays(4) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d5collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d5headingTwo">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyExams", new { d = DateTime.Today.AddDays(4), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="d5headingThree">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#dayFive" href="#d5collapseThree" aria-expanded="false" aria-controls="d5collapseThree">
+                                            Projects <span class="badge pull-right">@Html.Action("getExamCount", new { d = DateTime.Today.AddDays(4) })</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="d5collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="d5headingThree">
+                                    <div class="panel-body">
+                                        @foreach (var item in Model.Cours)
+                                        {
+                                            @Html.Action("getDailyProjects", new { d = DateTime.Today.AddDays(4), id = item.Id })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row profileTopBar">
+        <span id="editProfileLink">
+            @Html.ActionLink("Edit Profile", "Edit", new { id = Model.Id }, new { @class = "btn btn-sm btn-primary editProfileButton" })
+        </span>
     </div>
 </div>
-<span id="editProfileLink">
-    @Html.ActionLink("Edit Profile", "Edit", new { id = Model.Id })
-</span>
 <div class="container-fluid mainContent">
     <div class="container">
         <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
+            <div class="container-fluid" style="padding-left:0px; padding-right:0px;">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#taskNav">
                         <span class="sr-only">Toggle navigation</span>
@@ -50,7 +370,6 @@
                         <span class="pull-right addButton">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#homeworkModal">
                                 <div class="glyphicon glyphicon-plus"></div>
-                                <span>Homework</span>
                             </button>
                         </span>
                     </div>

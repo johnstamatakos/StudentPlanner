@@ -49,7 +49,7 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ProjectName,DueDate,CourseId")] Project project)
+        public ActionResult Create([Bind(Include = "Id,ProjectName,Description,DueDate,CourseId")] Project project)
         {
             if (ModelState.IsValid)
             {

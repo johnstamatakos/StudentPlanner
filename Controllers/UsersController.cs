@@ -242,7 +242,7 @@ namespace StudentPlanner.Controllers
         public ActionResult getExams(int id)
         {
 
-            var exams = (from e in db.Homeworks
+            var exams = (from e in db.Exams
                             join c in db.Courses on e.CourseId equals c.Id
                             where e.CourseId == id
                             select c.Exams).FirstOrDefault();
@@ -264,6 +264,75 @@ namespace StudentPlanner.Controllers
             ViewBag.Courses = new SelectList(query.AsEnumerable(), "Id", "CourseName");
 
             return PartialView("_projectsPartial", projects);
+        }
+
+        public ActionResult getDailyHomeworks(DateTime d, int id)
+        {
+            var homework = (from hw in db.Homeworks
+                            join c in db.Courses on hw.CourseId equals c.Id
+                            where hw.CourseId == id && hw.DueDate == d
+                            select hw);
+
+            ViewBag.hwCount = homework.Count();
+
+            var query = db.Courses.Select(c => new { c.Id, c.CourseName });
+            ViewBag.Courses = new SelectList(query.AsEnumerable(), "Id", "CourseName");
+
+            return PartialView("_hwDayPartial", homework);
+        }
+        public ActionResult getDailyExams(DateTime d, int id)
+        {
+            var exams = (from e in db.Exams
+                         join c in db.Courses on e.CourseId equals c.Id
+                         where e.CourseId == id && e.DueDate == d
+                         select e);
+
+            var query = db.Courses.Select(c => new { c.Id, c.CourseName });
+            ViewBag.Courses = new SelectList(query.AsEnumerable(), "Id", "CourseName");
+
+            return PartialView("_examsDayPartial", exams);
+        }
+        public ActionResult getDailyProjects(DateTime d, int id)
+        {
+            var projects = (from p in db.Projects
+                            join c in db.Courses on p.CourseId equals c.Id
+                            where p.CourseId == id && p.DueDate == d
+                            select p);
+
+            var query = db.Courses.Select(c => new { c.Id, c.CourseName });
+            ViewBag.Courses = new SelectList(query.AsEnumerable(), "Id", "CourseName");
+
+            return PartialView("_projectsDayPartial", projects);
+        }
+
+        public int getHwCount(DateTime d)
+        {
+            var homework = (from hw in db.Homeworks
+                            join c in db.Courses on hw.CourseId equals c.Id
+                            where hw.DueDate == d
+                            select hw);
+            var count = homework.Count();
+            return count;
+        }
+
+        public int getExamCount(DateTime d)
+        {
+            var exams = (from e in db.Exams
+                         join c in db.Courses on e.CourseId equals c.Id
+                         where e.DueDate == d
+                         select e);
+            var count = exams.Count();
+            return count;
+        }
+
+        public int getProjectCount(DateTime d)
+        {
+            var projects = (from p in db.Projects
+                            join c in db.Courses on p.CourseId equals c.Id
+                            where p.DueDate == d
+                            select p);
+            var count = projects.Count();
+            return count;
         }
     }
 }

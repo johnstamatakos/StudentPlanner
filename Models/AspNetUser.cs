@@ -32,6 +32,10 @@ namespace StudentPlanner.Models
             this.AspNetRoles10 = new HashSet<AspNetRole>();
             this.Generals = new HashSet<General>();
             this.AspNetRoles11 = new HashSet<AspNetRole>();
+            this.AspNetRoles12 = new HashSet<AspNetRole>();
+            this.AspNetRoles13 = new HashSet<AspNetRole>();
+            this.AspNetRoles14 = new HashSet<AspNetRole>();
+            this.AspNetRoles15 = new HashSet<AspNetRole>();
         }
     
         public string Id { get; set; }
@@ -64,5 +68,9 @@ namespace StudentPlanner.Models
         public virtual ICollection<AspNetRole> AspNetRoles10 { get; set; }
         public virtual ICollection<General> Generals { get; set; }
         public virtual ICollection<AspNetRole> AspNetRoles11 { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles12 { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles13 { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles14 { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles15 { get; set; }
     }
 }

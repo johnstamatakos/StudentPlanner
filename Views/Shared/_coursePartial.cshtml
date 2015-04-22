@@ -4,7 +4,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#courseModal">
     <div class="glyphicon glyphicon-plus"></div>
-    <span>Course</span>
 </button>
 
 <!-- Modal -->
@@ -76,7 +75,7 @@
         <tr>
             <td class="courseItem">@Html.DisplayFor(modelItem => item.CourseName)</td>
             <td class="courseItem">@Html.DisplayFor(modelItem => item.Professor)</td>
-            <td>@Html.ActionLink("Delete", "Delete", new { Controller = "Cours", Id = item.Id, user = User.Identity.GetUserId() }, null)</td>
+            <td><a class="deleteButton" href="@Url.Action("Delete", "Cours", new {Id = item.Id, user = User.Identity.GetUserId() })"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
         </tr>
         }
     </table>

@@ -4,45 +4,44 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Exam</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ExamName)
-        </dt>
+<div class="container">
+    <div class="col-md-6 col-md-offset-4">
+        <h3>Are you sure you want to delete this?</h3>
+        <dl class="dl-horizontal">
+            <dt>
+                Exam
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ExamName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ExamName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prepared)
-        </dt>
+            <dt>
+                Due Date
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prepared)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DueDate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cour.CourseName)
-        </dt>
+            <dt>
+                Course
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cour.CourseName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Cour.CourseName)
+            </dd>
 
-    </dl>
+        </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+    <div class="form-actions no-color" style="padding-left:30%;">
+        <input type="submit" value="Delete" class="btn btn-primary" />
+    </div>
+        }
+    </div>
 </div>

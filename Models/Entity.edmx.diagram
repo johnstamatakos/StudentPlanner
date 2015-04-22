@@ -11,13 +11,11 @@
         <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="1.125" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="4.5" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Cours" Width="1.5" PointX="6.875" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Exam" Width="1.5" PointX="9.375" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Homework" Width="1.5" PointX="8.125" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Project" Width="1.5" PointX="10.75" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.CoursExam" />
         <AssociationConnector Association="Model.CoursProject" />
         <AssociationConnector Association="Model.CoursHomework" />
         <AssociationConnector Association="Model.AspNetUserRoles1" />
@@ -34,6 +32,12 @@
         <AssociationConnector Association="Model.AspNetUserRoles10" />
         <AssociationConnector Association="Model.AspNetUserGeneral" />
         <AssociationConnector Association="Model.AspNetUserRoles11" />
+        <AssociationConnector Association="Model.AspNetUserRoles12" />
+        <AssociationConnector Association="Model.AspNetUserRoles13" />
+        <AssociationConnector Association="Model.AspNetUserRoles14" />
+        <EntityTypeShape EntityType="Model.Exam" Width="1.5" PointX="8.375" PointY="5" />
+        <AssociationConnector Association="Model.CoursExam" />
+        <AssociationConnector Association="Model.AspNetUserRoles15" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

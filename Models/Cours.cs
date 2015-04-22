@@ -16,9 +16,9 @@ namespace StudentPlanner.Models
     {
         public Cours()
         {
-            this.Exams = new HashSet<Exam>();
             this.Projects = new HashSet<Project>();
             this.Homework = new HashSet<Homework>();
+            this.Exams = new HashSet<Exam>();
         }
     
         public int Id { get; set; }
@@ -28,9 +28,9 @@ namespace StudentPlanner.Models
         public string Professor { get; set; }
         public string UserId { get; set; }
     
-        public virtual ICollection<Exam> Exams { get; set; }
         public virtual ICollection<Project> Projects { get; set; }
         public virtual ICollection<Homework> Homework { get; set; }
         public virtual AspNetUser AspNetUser { get; set; }
+        public virtual ICollection<Exam> Exams { get; set; }
     }
 }
